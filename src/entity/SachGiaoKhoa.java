@@ -36,4 +36,11 @@ public class SachGiaoKhoa extends Sach {
     public LoaiSach getLoaiSach() {
         return LoaiSach.GiaoKhoa;
     }
+
+    @Override
+    public String toString() {
+        return "SachGiaoKhoa [maSach=" + maSach + ", ngayNhap=" + ngayNhap + ", tinhTrang=" + tinhTrang + ", donGia="
+                + donGia + ", soLuong=" + soLuong + ", nhaXuatBan=" + nhaXuatBan + ", tinhThanhTien()="
+                + tinhThanhTien() + "]";
+    }
 }

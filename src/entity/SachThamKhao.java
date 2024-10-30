@@ -29,5 +29,10 @@ public class SachThamKhao extends Sach {
     public LoaiSach getLoaiSach() {
         return LoaiSach.ThamKhao;
     }
-    
+
+    @Override
+    public String toString() {
+        return "SachThamKhao [maSach=" + maSach + ", thue=" + thue + ", ngayNhap=" + ngayNhap + ", donGia=" + donGia
+                + ", soLuong=" + soLuong + ", nhaXuatBan=" + nhaXuatBan + ", tinhThanhTien()=" + tinhThanhTien() + "]";
+    }
 }

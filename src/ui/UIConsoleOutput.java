@@ -1,3 +1,5 @@
+package ui;
+
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -26,15 +28,13 @@ public class UIConsoleOutput {
             writer.println("Danh sách sách trống.");
         } else {
             writer.println("Danh sách sách:");
-            for (Sach sach : danhSach) {
-                hienThongTinSach(sach);
-                writer.println("--------------------");
-            }
+            danhSach.forEach(sach -> {
+               writer.println(sach); 
+            });
         }
     }
 
     public void thongBao(String message) {
         writer.println(message);
-        writer.flush();
     }
 }
