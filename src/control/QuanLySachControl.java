@@ -2,6 +2,7 @@ package control;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import common.TinhTrang;
 import database.SachDatabaseMemory;
@@ -24,7 +25,11 @@ public class QuanLySachControl {
         this.uiOutput = uiOutput;
         this.database = database;
         this.idGenerator = idGenerator;
-        this.dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");;
+        this.dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    }
+
+    public void inDanhSach() {
+        uiOutput.hienDanhSach(database.selectAll());
     }
 
     public void them(String ngayNhap, double donGia, int soLuong, String nhaXuatBan, TinhTrang tinhTrang) {
@@ -46,6 +51,10 @@ public class QuanLySachControl {
     }
 
     public void sua(String maSach, String ngayNhap, double donGia, int soLuong, String nhaXuatBan, TinhTrang tinhTrang) {
+        if(database.selectById(maSach) == null) {
+            uiOutput.thongBao("Sua sach that bai! Ma sach khong ton tai");
+            return;
+        }
         LocalDate convertedNgayNhap = LocalDate.parse(ngayNhap, dateTimeFormatter);
         Sach sach = new SachGiaoKhoa(maSach, convertedNgayNhap, donGia, soLuong, nhaXuatBan, tinhTrang);
         database.update(sach);
@@ -54,6 +63,10 @@ public class QuanLySachControl {
     }
 
     public void sua(String maSach, String ngayNhap, double donGia, int soLuong, String nhaXuatBan, double thue) {
+        if(database.selectById(maSach) == null) {
+            uiOutput.thongBao("Sua sach that bai! Ma sach khong ton tai");
+            return;
+        }
         LocalDate convertedNgayNhap = LocalDate.parse(ngayNhap, dateTimeFormatter);
         Sach sach = new SachThamKhao(maSach, convertedNgayNhap, donGia, soLuong, nhaXuatBan, thue);
         database.update(sach);
@@ -62,16 +75,20 @@ public class QuanLySachControl {
     }
 
     public void xoa(String maSach) {
+        if(database.selectById(maSach) == null) {
+            uiOutput.thongBao("Xoa sach that bai! Ma sach khong ton tai");
+            return;
+        }
         database.delete(maSach);
         uiOutput.thongBao("Xoa thanh cong sach '" + maSach + "'");
     }
 
-    public void timKiem(String maSach) {
-        Sach result = database.selectById(maSach);
-        if(result != null) {
-            uiOutput.hienThongTinSach(result);
-        } else {
-            uiOutput.thongBao("Khong tim thay sach");
-        }     
+    public void timSach(String pattern) {
+        List<Sach> result = database.findByPattern(pattern);
+        uiOutput.hienDanhSach(result);
+    }
+
+    public Sach laySach(String id) {
+        return database.selectById(id);
     }
 }
