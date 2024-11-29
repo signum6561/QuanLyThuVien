@@ -45,4 +45,10 @@ public class SachGiaoKhoa extends Sach {
         this.tinhTrang = tinhTrang;
     }
 
+    @Override
+    public String toString() {
+        return "SachGiaoKhoa [maSach=" + maSach + ", ngayNhap=" + ngayNhap + ", tinhTrang=" + tinhTrang + ", donGia="
+                + donGia + ", soLuong=" + soLuong + ", nhaXuatBan=" + nhaXuatBan + ", thanhTien="
+                + tinhThanhTien() + "]";
+    }
 }

@@ -67,4 +67,10 @@ public abstract class Sach {
         this.nhaXuatBan = nhaXuatBan;
     }
     // #endregion
+
+    @Override
+    public String toString() {
+        return "Sach [maSach=" + maSach + ", ngayNhap=" + ngayNhap + ", donGia=" + donGia + ", soLuong=" + soLuong
+                + ", nhaXuatBan=" + nhaXuatBan + ", thanhTien=" + tinhThanhTien() + "]";
+    }
 }
