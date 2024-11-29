@@ -6,6 +6,7 @@ target/
 .env
 mysql-data
 personal-docs/
+bin/
 
 ### STS ###
 .apt_generated
