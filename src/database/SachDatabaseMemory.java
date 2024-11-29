@@ -14,6 +14,9 @@ public class SachDatabaseMemory {
 
     public SachDatabaseMemory() {
         sachList = new ArrayList<>();
+    }
+    
+    public void init() {
         sachList.add(new SachGiaoKhoa("B-MM323-43GF5", LocalDate.parse("2021-01-01"), 100000, 10, "Kim Dong", TinhTrang.Moi));
         sachList.add(new SachGiaoKhoa("B-M2334-GRF54", LocalDate.parse("2021-02-11"), 110000, 11, "IPM", TinhTrang.Cu));
         sachList.add(new SachThamKhao("B-TK324-G4354", LocalDate.parse("2021-02-11"), 110000, 11, "IPM", 0.5));
@@ -24,7 +27,7 @@ public class SachDatabaseMemory {
     public Sach selectById(String id) {
         return sachList
                 .stream()
-                .filter(sach -> sach.getMaSach().equals(id))
+                .filter(sach -> sach.getMaSach().equalsIgnoreCase(id))
                 .findFirst()
                 .orElse(null);
     }
@@ -39,7 +42,7 @@ public class SachDatabaseMemory {
 
     public void update(Sach sach) {
         for(int i = 0; i < sachList.size(); i++) {
-            if(sachList.get(i).getMaSach().equals(sach.getMaSach())) {
+            if(sachList.get(i).getMaSach().equalsIgnoreCase(sach.getMaSach())) {
                 sachList.set(i, sach);
                 break;
             }
@@ -55,7 +58,7 @@ public class SachDatabaseMemory {
         }
     }
 
-    public List<Sach> findByPattern(String pattern) {
+    public List<Sach> selectByPattern(String pattern) {
         return sachList
             .stream()
             .filter(sach -> 

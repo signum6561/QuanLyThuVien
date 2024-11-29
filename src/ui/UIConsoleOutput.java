@@ -19,6 +19,7 @@ public class UIConsoleOutput {
         if (sach != null) {
             writer.println("---------------------------");
             writer.println("Ma sach: " + sach.getMaSach());
+            writer.println("Loai sach: " + sach.getLoaiSach());
             writer.println("Ngay nhap: " + sach.getNgayNhap());
             writer.println("Don gia: " + String.format("%.2f", sach.getDonGia()));
             writer.println("So luong: " + sach.getSoLuong());

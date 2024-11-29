@@ -3,14 +3,13 @@ package ui;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class MenuConsoleController {
-    private String prompt;
+public class MenuCUI {
     private Scanner sc;
     private PrintWriter writer;
     private UIConsoleInput uiConsoleInput;
+    private static final String PROMPT = "> ";
 
-    public MenuConsoleController(Scanner sc, PrintWriter writer, UIConsoleInput uiConsoleInput) {
-        this.prompt = "$ ";
+    public MenuCUI(Scanner sc, PrintWriter writer, UIConsoleInput uiConsoleInput) {
         this.sc = sc;
         this.writer = writer;
         this.uiConsoleInput = uiConsoleInput;
@@ -19,7 +18,7 @@ public class MenuConsoleController {
     public void run() {
         help();
         while (true) {
-            writer.print(prompt); writer.flush();
+            writer.print(PROMPT); writer.flush();
             String command = sc.nextLine().trim();
             if(command.equalsIgnoreCase("help")) {
                 help();
@@ -27,6 +26,10 @@ public class MenuConsoleController {
             }
             if(command.equalsIgnoreCase("thuvien") || command.equalsIgnoreCase("tv")) {
                 uiConsoleInput.xemDanhSach();
+                continue;
+            }
+            if(command.equalsIgnoreCase("detail") || command.equalsIgnoreCase("de")) {
+                uiConsoleInput.xemThongTinSach();
                 continue;
             }
             if(command.equalsIgnoreCase("add")) {
@@ -59,6 +62,7 @@ public class MenuConsoleController {
         writer.println("~~~~~~Console Help~~~~~~");
 		writer.println("[help] Ho tro su dung");
         writer.println("[thuvien][tv] In danh sach tat ca cac sach trong thu vien");
+        writer.println("[detail][de] In thong tin chi tiet sach voi ma sach");
         writer.println("[add] Them sach");
         writer.println("[update] Sua sach");
         writer.println("[delete] Xoa sach");

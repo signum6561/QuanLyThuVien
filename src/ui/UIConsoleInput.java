@@ -24,6 +24,17 @@ public class UIConsoleInput {
         sachControl.inDanhSach();
     }
 
+    public void xemThongTinSach() {
+        writer.print("Nhap ma sach: "); writer.flush();
+        String maSach = sc.nextLine().trim();
+        if(Validator.isEmptyOrNull(maSach)) {
+            writer.println("Ma sach khong duoc de trong");
+            return;
+        }
+
+        sachControl.inChiTiet(maSach);
+    }
+
     public void themSach() {
         writer.print("Chon Loai Sach(0-Sach giao khoa, 1-Sach tham khao): "); writer.flush();
         int loaiSachIndex = sc.nextInt(); sc.nextLine();

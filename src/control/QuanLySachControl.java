@@ -32,6 +32,15 @@ public class QuanLySachControl {
         uiOutput.hienDanhSach(database.selectAll());
     }
 
+    public void inChiTiet(String maSach) {
+        Sach result = database.selectById(maSach);
+        if(result != null) {            
+            uiOutput.hienThongTinSach(result);
+        } else {
+            uiOutput.thongBao("Khong tim thay ma sach");
+        }
+    }
+
     public void them(String ngayNhap, double donGia, int soLuong, String nhaXuatBan, TinhTrang tinhTrang) {
         String maSach = idGenerator.generate();
         LocalDate convertedNgayNhap = LocalDate.parse(ngayNhap, dateTimeFormatter);
@@ -84,7 +93,7 @@ public class QuanLySachControl {
     }
 
     public void timSach(String pattern) {
-        List<Sach> result = database.findByPattern(pattern);
+        List<Sach> result = database.selectByPattern(pattern);
         uiOutput.hienDanhSach(result);
     }
 
