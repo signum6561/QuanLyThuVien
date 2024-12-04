@@ -1,6 +1,11 @@
 package common;
 
 public enum TinhTrang {
-    Moi,
-    Cu,
+    MOI,
+    CU;
+
+    private static final TinhTrang[] values = values();
+    public static TinhTrang get(int ordinal) {
+        return values[ordinal];
+    }
 }
