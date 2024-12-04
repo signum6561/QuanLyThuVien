@@ -14,28 +14,28 @@ public class Printer {
         return color.get() + text + RESET;
     }
 
-    public void write(String message) {
-        writer.print(message); writer.flush();
+    public void write(String text) {
+        writer.print(text); writer.flush();
     }
 
-    public void log(String message) {
-        writer.println(message);
+    public void log(String text) {
+        writer.println(text);
     }
 
-    public void success(String message) {
-        writer.println(colorize(message, AnsiColors.GREEN));
+    public void success(String text) {
+        writer.println(colorize(text, AnsiColors.GREEN));
     }
 
-    public void error(String message) {
-        writer.println(colorize(message, AnsiColors.RED));
+    public void error(String text) {
+        writer.println(colorize(text, AnsiColors.RED));
     }
 
-    public void warning(String message) {
-        writer.println(colorize(message, AnsiColors.YELLOW));
+    public void warning(String text) {
+        writer.println(colorize(text, AnsiColors.YELLOW));
     }
 
-    public void info(String message) {
-        writer.println(colorize(message, AnsiColors.BLUE));
+    public void info(String text) {
+        writer.println(colorize(text, AnsiColors.BLUE));
     }
 
     public void format(String format, Object ... args) {
