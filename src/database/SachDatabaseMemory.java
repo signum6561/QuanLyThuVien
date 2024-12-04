@@ -11,14 +11,17 @@ import entity.SachThamKhao;
 
 public class SachDatabaseMemory {
     private List<Sach> sachList;
+    public static final SachDatabaseMemory INSTANCE = new SachDatabaseMemory();
 
     public SachDatabaseMemory() {
         sachList = new ArrayList<>();
+        init();
     }
     
     public void init() {
-        sachList.add(new SachGiaoKhoa("B-MM323-43GF5", LocalDate.parse("2021-01-01"), 100000, 10, "Kim Dong", TinhTrang.Moi));
-        sachList.add(new SachGiaoKhoa("B-M2334-GRF54", LocalDate.parse("2021-02-11"), 110000, 11, "IPM", TinhTrang.Cu));
+        sachList = new ArrayList<>();
+        sachList.add(new SachGiaoKhoa("B-MM323-43GF5", LocalDate.parse("2021-01-01"), 100000, 10, "Kim Dong", TinhTrang.MOI));
+        sachList.add(new SachGiaoKhoa("B-M2334-GRF54", LocalDate.parse("2021-02-11"), 110000, 11, "IPM", TinhTrang.CU));
         sachList.add(new SachThamKhao("B-TK324-G4354", LocalDate.parse("2021-02-11"), 110000, 11, "IPM", 0.5));
         sachList.add(new SachThamKhao("B-T7604-GGF54", LocalDate.parse("2021-02-11"), 110000, 11, "IPM", 0.4));
         sachList.add(new SachThamKhao("B-BG564-F54GG", LocalDate.parse("2021-02-11"), 110000, 11, "Kim Dong", 0.2));
@@ -50,12 +53,7 @@ public class SachDatabaseMemory {
     }
 
     public void delete(String id) {
-        for(int i = 0; i < sachList.size(); i++) {
-            if(sachList.get(i).getMaSach().equals(id)) {
-                sachList.remove(i);
-                break;
-            }
-        }
+        sachList.removeIf(sach -> sach.getMaSach().equalsIgnoreCase(id));
     }
 
     public List<Sach> selectByPattern(String pattern) {

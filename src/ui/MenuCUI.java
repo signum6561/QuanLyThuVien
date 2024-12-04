@@ -6,13 +6,11 @@ import java.util.Scanner;
 public class MenuCUI {
     private Scanner sc;
     private PrintWriter writer;
-    private UIConsoleInput uiConsoleInput;
     private static final String PROMPT = "> ";
 
-    public MenuCUI(Scanner sc, PrintWriter writer, UIConsoleInput uiConsoleInput) {
+    public MenuCUI(Scanner sc, PrintWriter writer) {
         this.sc = sc;
         this.writer = writer;
-        this.uiConsoleInput = uiConsoleInput;
     }
 
     public void run() {
@@ -22,30 +20,6 @@ public class MenuCUI {
             String command = sc.nextLine().trim();
             if(command.equalsIgnoreCase("help")) {
                 help();
-                continue;
-            }
-            if(command.equalsIgnoreCase("thuvien") || command.equalsIgnoreCase("tv")) {
-                uiConsoleInput.xemDanhSach();
-                continue;
-            }
-            if(command.equalsIgnoreCase("detail") || command.equalsIgnoreCase("de")) {
-                uiConsoleInput.xemThongTinSach();
-                continue;
-            }
-            if(command.equalsIgnoreCase("add")) {
-                uiConsoleInput.themSach();
-                continue;
-            }
-            if(command.equalsIgnoreCase("update")) {
-                uiConsoleInput.suaSach();
-                continue;
-            }
-            if(command.equalsIgnoreCase("delete")) {
-                uiConsoleInput.xoaSach();
-                continue;
-            }
-            if(command.equalsIgnoreCase("find")) {
-                uiConsoleInput.timKiemSach();
                 continue;
             }
             if(command.equalsIgnoreCase("clear") || command.equalsIgnoreCase("cls")) {

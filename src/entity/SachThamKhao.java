@@ -27,7 +27,7 @@ public class SachThamKhao extends Sach {
 
     @Override
     public LoaiSach getLoaiSach() {
-        return LoaiSach.ThamKhao;
+        return LoaiSach.THAM_KHAO;
     }
 
     public double getThue() {

@@ -24,7 +24,7 @@ public class SachGiaoKhoa extends Sach {
     @Override
     public double tinhThanhTien() {
         double result = 0;
-        if(tinhTrang == TinhTrang.Moi) {
+        if(tinhTrang == TinhTrang.MOI) {
             result = soLuong * donGia;
         } else {
             result = soLuong * donGia * 0.5;
@@ -34,7 +34,7 @@ public class SachGiaoKhoa extends Sach {
 
     @Override
     public LoaiSach getLoaiSach() {
-        return LoaiSach.GiaoKhoa;
+        return LoaiSach.GIAO_KHOA;
     }
 
     public TinhTrang getTinhTrang() {

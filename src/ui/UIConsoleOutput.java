@@ -8,6 +8,7 @@ import entity.Sach;
 import entity.SachGiaoKhoa;
 import entity.SachThamKhao;
 
+@Deprecated
 public class UIConsoleOutput {
     private PrintWriter writer;
 
@@ -24,7 +25,7 @@ public class UIConsoleOutput {
             writer.println("Don gia: " + String.format("%.2f", sach.getDonGia()));
             writer.println("So luong: " + sach.getSoLuong());
             writer.println("Nha xuat ban: " + sach.getNhaXuatBan());
-            if(sach.getLoaiSach() == LoaiSach.GiaoKhoa) {
+            if(sach.getLoaiSach() == LoaiSach.GIAO_KHOA) {
                 writer.println("Tinh Trang: " + ((SachGiaoKhoa)sach).getTinhTrang());
             } else {
                 writer.println("Thue: " + ((SachThamKhao)sach).getThue());
