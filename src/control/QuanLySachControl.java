@@ -12,6 +12,7 @@ import entity.SachThamKhao;
 import ui.UIConsoleOutput;
 import util.IdGenerator;
 
+@Deprecated
 public class QuanLySachControl {
     private UIConsoleOutput uiOutput;
     private SachDatabaseMemory database;

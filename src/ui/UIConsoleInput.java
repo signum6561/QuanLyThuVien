@@ -8,7 +8,7 @@ import common.TinhTrang;
 import control.QuanLySachControl;
 import util.Validator;
 
-
+@Deprecated
 public class UIConsoleInput {
     private Scanner sc;
     private QuanLySachControl sachControl;
@@ -74,7 +74,7 @@ public class UIConsoleInput {
             return;
         }
 
-        if(loaiSach == LoaiSach.GiaoKhoa) {
+        if(loaiSach == LoaiSach.GIAO_KHOA) {
             writer.print("Chon tinh trang(0-Moi, 1-Cu): "); writer.flush();
             int tinhTrangIndex = sc.nextInt(); sc.nextLine();
             if(!Validator.isTinhTrangValid(tinhTrangIndex)) {
@@ -140,7 +140,7 @@ public class UIConsoleInput {
             return;
         }
 
-        if(loaiSach == LoaiSach.GiaoKhoa) {
+        if(loaiSach == LoaiSach.GIAO_KHOA) {
             writer.print("Chon tinh trang(0-Moi, 1-Cu): "); writer.flush();
             int tinhTrangIndex = sc.nextInt(); sc.nextLine();
             if(!Validator.isTinhTrangValid(tinhTrangIndex)) {
