@@ -10,9 +10,9 @@ import ui.ThemSach.ThemSachOutputCUI;
 import util.IdGenerator;
 
 public class ThemSachControl {
-    private ThemSachOutputCUI themSachOutput;
-    private ThemSachDAO themSachDao;
-    private IdGenerator idGenerator;
+    private final ThemSachOutputCUI themSachOutput;
+    private final ThemSachDAO themSachDao;
+    private final IdGenerator idGenerator;
 
     public ThemSachControl(ThemSachOutputCUI themSachOutput, ThemSachDAO themSachDao, IdGenerator idGenerator) {
         this.themSachOutput = themSachOutput;

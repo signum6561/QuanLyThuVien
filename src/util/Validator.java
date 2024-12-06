@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import common.AppConstant;
 
 public final class Validator {
-    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern(AppConstant.DEFAULT_DATE_FORMAT);
+    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern(AppConstant.DEFAULT_DATE_FORMAT);
     private static final String UNSIGNED_INTEGER_REGEX = "^[0-9]+$";
     private static final String UNSIGNED_DECIMAL_REGEX = "^[0-9]+(\\.[0-9]+)?$";
 
