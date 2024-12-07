@@ -1,16 +1,27 @@
+import java.util.Scanner;
+
+import control.ThemSachControl;
+import database.dao.ThemSachDAO;
+import ui.MenuCUI;
+import ui.ThemSach.ThemSachInputCUI;
+import ui.ThemSach.ThemSachOutputCUI;
+import ui.util.Printer;
+import util.IdGenerator;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        // PrintWriter printWriter = new PrintWriter(System.out, true);
-        // Scanner sc = new Scanner(System.in);
+        Printer printer = new Printer();
+        Scanner sc = new Scanner(System.in);
 
-        // UIConsoleOutput uiOutput = new UIConsoleOutput(printWriter);
-        // IdGenerator idGenerator = new IdGenerator();
-        // SachDatabaseMemory databaseMemory = new SachDatabaseMemory();
+        ThemSachOutputCUI themSachOutputCUI = new ThemSachOutputCUI(printer);
+        ThemSachDAO themSachDAO = new ThemSachDAO();
+        IdGenerator idGenerator = new IdGenerator();
+        ThemSachControl themSachControl = new ThemSachControl(themSachOutputCUI, themSachDAO, idGenerator);
+        ThemSachInputCUI themSachInputCUI = new ThemSachInputCUI(sc, printer, themSachControl);
 
-        // QuanLySachControl quanLySachControl = new QuanLySachControl(uiOutput, databaseMemory, idGenerator);
-        // UIConsoleInput uiInput = new UIConsoleInput(sc, printWriter, quanLySachControl);
-        // MenuCUI menuConsoleController = new MenuCUI(sc, printWriter, uiInput);
+        MenuCUI menuCUI = new MenuCUI(sc, printer);
+        menuCUI.setThemSachInputCUI(themSachInputCUI);
 
-        // menuConsoleController.run();
+        menuCUI.run();
     }
 }

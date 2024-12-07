@@ -71,7 +71,7 @@ public class ThemSachInputCUI {
 
         ThemSachInputDTO themSachInputDTO = new ThemSachInputDTO();
         themSachInputDTO.setLoaiSach(loaiSach);
-        themSachInputDTO.setNgayNhap(LocalDate.parse(inp_ngayNhap));
+        themSachInputDTO.setNgayNhap(LocalDate.parse(inp_ngayNhap, Validator.DATE_FORMATTER));
         themSachInputDTO.setDonGia(Double.parseDouble(inp_donGia));
         themSachInputDTO.setSoLuong(Integer.parseInt(inp_loaiSach));
         themSachInputDTO.setNhaXuatBan(inp_nhaXuatBan);

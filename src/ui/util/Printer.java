@@ -22,8 +22,12 @@ public class Printer {
         writer.println(text);
     }
 
+    public void log(String text, AnsiColors color) {
+        writer.println(colorize(text, color));
+    }
+
     public void success(String text) {
-        writer.println(colorize(text, AnsiColors.GREEN));
+        writer.println(colorize(text, AnsiColors.GREEN_BRIGHT));
     }
 
     public void error(String text) {
@@ -31,11 +35,11 @@ public class Printer {
     }
 
     public void warning(String text) {
-        writer.println(colorize(text, AnsiColors.YELLOW));
+        writer.println(colorize(text, AnsiColors.YELLOW_BRIGHT));
     }
 
     public void info(String text) {
-        writer.println(colorize(text, AnsiColors.BLUE));
+        writer.println(colorize(text, AnsiColors.BLUE_BRIGHT));
     }
 
     public void format(String format, Object ... args) {
