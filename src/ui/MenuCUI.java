@@ -1,6 +1,8 @@
 package ui;
 
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import common.AppConstant;
@@ -11,10 +13,8 @@ import ui.util.Printer;
 import util.Validator;
 
 public class MenuCUI {
-    private Scanner sc;
-    private Printer printer;
-    private final String PROMPT = "app$ ";
-    private final String ASCII_ART_FILE = "assets/ascii-art.txt";
+    private static final String PROMPT = "qls> ";
+    private static final String ASCII_ART_FILE = "assets/ascii-art.txt";
     private static final Command[] COMMANDS = new Command[] {
         new Command("help", ".h","Ho tro su dung"),
         new Command("thuvien", "tv", "In danh sach tat ca cac sach trong thu vien"),
@@ -28,6 +28,8 @@ public class MenuCUI {
     };
 
     // Dependencies
+    private final Scanner sc;
+    private final Printer printer;
     private ThemSachInputCUI themSachInputCUI;
 
     public MenuCUI(Scanner sc, Printer printer) {
@@ -42,7 +44,7 @@ public class MenuCUI {
     public void run() {
         welcome();
         while (true) {
-            printer.write(PROMPT);
+            printer.write(PROMPT, AnsiColors.YELLOW_BOLD_BRIGHT);
             String inputTxt = sc.nextLine().trim();
             if(inputTxt.isEmpty()) {
                 continue;
@@ -91,14 +93,15 @@ public class MenuCUI {
 
     private void welcome() {
         try {
-            File file = new File(getClass().getResource(ASCII_ART_FILE).getPath());
-            Scanner sc = new Scanner(file);
-            while (sc.hasNextLine()) {
-                printer.log(sc.nextLine(), AnsiColors.CYAN_BOLD_BRIGHT);
+            InputStream inputStream = getClass().getResourceAsStream(ASCII_ART_FILE);
+            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+            String line;
+            while ((line = br.readLine()) != null) {
+                printer.log(line);
             }
-            sc.close();
+            br.close();
             printer.log("Welcome to " + AppConstant.APP_NAME + " v" + AppConstant.APP_VERSION);
-            printer.log("Go \"help\" de duoc ho tro su dung");
+            printer.log("Go \"help\" de duoc ho tro su dung\n");
         } catch (Exception e) {
             e.printStackTrace();
         }

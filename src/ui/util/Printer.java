@@ -18,6 +18,10 @@ public class Printer {
         writer.print(text); writer.flush();
     }
 
+    public void write(String text, AnsiColors color) {
+        writer.print(colorize(text, color)); writer.flush();
+    }
+
     public void log(String text) {
         writer.println(text);
     }
@@ -27,19 +31,19 @@ public class Printer {
     }
 
     public void success(String text) {
-        writer.println(colorize(text, AnsiColors.GREEN_BRIGHT));
+        writer.println(colorize("Success: " + text, AnsiColors.GREEN));
     }
 
     public void error(String text) {
-        writer.println(colorize(text, AnsiColors.RED));
+        writer.println(colorize("Error: " +text, AnsiColors.RED));
     }
 
     public void warning(String text) {
-        writer.println(colorize(text, AnsiColors.YELLOW_BRIGHT));
+        writer.println(colorize("Warning: " +text, AnsiColors.YELLOW));
     }
 
     public void info(String text) {
-        writer.println(colorize(text, AnsiColors.BLUE_BRIGHT));
+        writer.println(colorize("Info: " +text, AnsiColors.BLUE));
     }
 
     public void format(String format, Object ... args) {

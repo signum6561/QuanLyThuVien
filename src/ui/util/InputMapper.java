@@ -5,7 +5,7 @@ import java.util.Map;
 import common.LoaiSach;
 import common.TinhTrang;
 
-public class InputMapper {
+public final class InputMapper {
     public static final Map<String, LoaiSach> LOAI_SACH = Map.of(
         "0", LoaiSach.GIAO_KHOA,
         "1", LoaiSach.THAM_KHAO
