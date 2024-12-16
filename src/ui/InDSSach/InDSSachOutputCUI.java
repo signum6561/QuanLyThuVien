@@ -2,8 +2,10 @@ package ui.InDSSach;
 
 import java.util.List;
 
+import database.SachDatabaseMemory;
 import entity.Sach;
 import ui.util.Printer;
+import ui.util.TableSach;
 
 public class InDSSachOutputCUI {
     private final Printer printer;
@@ -13,6 +15,7 @@ public class InDSSachOutputCUI {
     }
 
     public void inDanhSach(List<Sach> sachList) {
-        
+       TableSach tableSach = new TableSach(sachList, printer);
+    	 tableSach.show();
     }   
 }
