@@ -6,7 +6,6 @@ public final class AppConstant {
 
     public static final String DEFAULT_DATE_FORMAT = "dd-MM-yyyy";
     public static final String CURRENCY_FORMAT = "#,###.00";
-    public static final String SUCCESS_THEM_SACH = "Them sach thanh cong!";
         
     public static final String PARAM_ERROR_UNKNOWN_COMMAND = "Lenh khong xac dinh \"@c\"";
     public static final String ERROR_UNKNOWN_COMMAND(String command) {

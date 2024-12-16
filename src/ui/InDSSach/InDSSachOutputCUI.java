@@ -16,6 +16,6 @@ public class InDSSachOutputCUI {
 
     public void inDanhSach(List<Sach> sachList) {
        TableSach tableSach = new TableSach(sachList, printer);
-    	tableSach.show();	   
+    	 tableSach.show();
     }   
 }

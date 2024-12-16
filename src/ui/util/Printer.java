@@ -31,19 +31,19 @@ public class Printer {
     }
 
     public void success(String text) {
-        writer.println(colorize("Success: " + text, AnsiColors.GREEN));
+        writer.println(colorize("[SUCCESS] " + text, AnsiColors.GREEN));
     }
 
     public void error(String text) {
-        writer.println(colorize("Error: " +text, AnsiColors.RED));
+        writer.println(colorize("[ERROR] " + text, AnsiColors.RED));
     }
 
     public void warning(String text) {
-        writer.println(colorize("Warning: " +text, AnsiColors.YELLOW));
+        writer.println(colorize("[WARN] " + text, AnsiColors.YELLOW));
     }
 
     public void info(String text) {
-        writer.println(colorize("Info: " +text, AnsiColors.BLUE));
+        writer.println(colorize("[INFO] " + text, AnsiColors.BLUE));
     }
 
     public void format(String format, Object ... args) {
