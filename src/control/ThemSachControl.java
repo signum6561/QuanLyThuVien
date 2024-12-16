@@ -1,6 +1,5 @@
 package control;
 
-import common.AppConstant;
 import database.dao.ThemSachDAO;
 import dto.ThemSachInputDTO;
 import entity.Sach;
@@ -36,12 +35,13 @@ public class ThemSachControl {
             default:
                 return;
         }
-        sach.setMaSach(idGenerator.generate());
+        String id = idGenerator.generate();
+        sach.setMaSach(id);
         sach.setNgayNhap(request.getNgayNhap());
         sach.setDonGia(request.getDonGia());
         sach.setSoLuong(request.getSoLuong());
         sach.setNhaXuatBan(request.getNhaXuatBan());
         themSachDao.themSach(sach);
-        themSachOutput.thongBao(AppConstant.SUCCESS_THEM_SACH);
+        themSachOutput.thongBao(id);
     }
 }

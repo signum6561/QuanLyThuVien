@@ -3,6 +3,7 @@ import java.util.Scanner;
 import control.ThemSachControl;
 import database.dao.ThemSachDAO;
 import ui.MenuCUI;
+import ui.UserInputController;
 import ui.ThemSach.ThemSachInputCUI;
 import ui.ThemSach.ThemSachOutputCUI;
 import ui.util.Printer;
@@ -19,9 +20,10 @@ public class App {
         ThemSachControl themSachControl = new ThemSachControl(themSachOutputCUI, themSachDAO, idGenerator);
         ThemSachInputCUI themSachInputCUI = new ThemSachInputCUI(sc, printer, themSachControl);
 
-        MenuCUI menuCUI = new MenuCUI(sc, printer);
+        MenuCUI menuCUI = new MenuCUI(printer);
         menuCUI.setThemSachInputCUI(themSachInputCUI);
 
-        menuCUI.run();
+        UserInputController userInputController = new UserInputController(sc, printer, menuCUI);
+        userInputController.run();
     }
 }
