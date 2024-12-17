@@ -6,6 +6,10 @@ public class Printer {
     private PrintWriter writer;
     private static final String RESET = "\033[0m";
 
+    public Printer(PrintWriter writer) {
+        this.writer = writer;
+    }
+
     public Printer() {
         this.writer = new PrintWriter(System.out, true);
     }

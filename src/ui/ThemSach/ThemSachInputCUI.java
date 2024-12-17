@@ -32,40 +32,52 @@ public class ThemSachInputCUI {
     }
 
     public void nhapThongTinSach() {
-        printer.info("Vui long cung cap thong tin sach can them");
-        printer.write("Ngay nhap (dd-MM-yyyy): ");
+        printer.info("Vui lòng cung cấp thông tin sách cần thêm");
+        printer.write("Ngày nhập (dd-MM-yyyy): ");
         inp_ngayNhap = sc.nextLine().trim();
+        if(Validator.isEmptyOrNull(inp_ngayNhap)) {
+            printer.error("Ngày nhập không được để trống");
+            return;
+        }
         if(!Validator.isDateFormatValid(inp_ngayNhap)) {
-            printer.warning("Ngay nhap khong hop le hoac khong dung dinh dang (dd-MM-yyyy)");
+            printer.error("Ngày nhập không hợp lệ hoặc không đúng định dạng (dd-MM-yyyy)");
             return;
         }
 
-        printer.write("Don gia: ");
+        printer.write("Đơn giá: ");
         inp_donGia = sc.nextLine().trim();
+        if(Validator.isEmptyOrNull(inp_donGia)) {
+            printer.error("Đơn giá không được để trống");
+            return;
+        }
         if(!Validator.isUnsignedDecimal(inp_donGia)) {
-            printer.warning("Don gia khong hop le");
+            printer.error("Đơn giá không hợp lệ");
             return;
         }
 
-        printer.write("So luong: ");
+        printer.write("Số lượng: ");
         inp_soLuong = sc.nextLine().trim();
+        if (Validator.isEmptyOrNull(inp_soLuong)) {
+            printer.error("Số lượng không được để trống");
+            return;
+        }
         if(!Validator.isUnsignedInteger(inp_soLuong)) {
-            printer.warning("So luong khong hop le");
+            printer.error("Số lượng không hợp lệ");
             return;
         }
 
-        printer.write("Nha xuat ban: ");
+        printer.write("Nhà xuất bản: ");
         inp_nhaXuatBan = sc.nextLine().trim();
         if(Validator.isEmptyOrNull(inp_nhaXuatBan)) {
-            printer.warning("Nha xuat ban khong duoc de trong");
+            printer.error("Nhà xuất bản không được để trống");
             return;
         }
 
-        printer.write("Loai sach (0-Sach giao khoa, 1-Sach tham khao): ");
+        printer.write("Loại sách (0-Sách giáo khoa, 1-Sách tham khảo): ");
         inp_loaiSach = sc.nextLine().trim();
         LoaiSach loaiSach = loaiSachMapper.get(inp_loaiSach);
         if(loaiSach == null) {
-            printer.warning("Loai sach khong hop le");
+            printer.error("Loại sách không hợp lệ");
             return;
         }
 
@@ -73,26 +85,30 @@ public class ThemSachInputCUI {
         themSachInputDTO.setLoaiSach(loaiSach);
         themSachInputDTO.setNgayNhap(LocalDate.parse(inp_ngayNhap, Validator.DATE_FORMATTER));
         themSachInputDTO.setDonGia(Double.parseDouble(inp_donGia));
-        themSachInputDTO.setSoLuong(Integer.parseInt(inp_loaiSach));
+        themSachInputDTO.setSoLuong(Integer.parseInt(inp_soLuong));
         themSachInputDTO.setNhaXuatBan(inp_nhaXuatBan);
 
         switch (loaiSach) {
             case GIAO_KHOA:
-                printer.write("Tinh trang (0-Moi, 1-Cu): ");
+                printer.write("Tình trạng (0-Mới, 1-Cũ): ");
                 inp_tinhTrang = sc.nextLine().trim();
                 TinhTrang tinhTrang = tinhTrangMapper.get(inp_tinhTrang);
                 if(tinhTrang == null) {
-                    printer.warning("Tinh trang khong hop le");
+                    printer.error("Tình trạng không hợp lệ");
                     return;
                 }
 
                 themSachInputDTO.setTinhTrang(tinhTrang);
                 break;
             case THAM_KHAO:
-                printer.write("Thue: ");
+                printer.write("Thuế: ");
                 inp_thue = sc.nextLine().trim();
+                if(Validator.isEmptyOrNull(inp_thue)) {
+                    printer.error("Thuế không được để trống");
+                    return;
+                }
                 if(!Validator.isUnsignedDecimal(inp_thue)) {
-                    printer.warning("Thue khong hop le");
+                    printer.error("Thuế không hợp lệ");
                     return;
                 }
 

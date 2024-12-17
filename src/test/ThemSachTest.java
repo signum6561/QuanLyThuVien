@@ -3,8 +3,9 @@ package test;
 import java.util.Scanner;
 
 import control.ThemSachControl;
+import control.ThemSachDAO;
 import database.SachDatabaseMemory;
-import database.dao.ThemSachDAO;
+import database.dao.ThemSachDAOMemory;
 import entity.Sach;
 import ui.ThemSach.ThemSachInputCUI;
 import ui.ThemSach.ThemSachOutputCUI;
@@ -18,7 +19,7 @@ public class ThemSachTest {
         Scanner sc = new Scanner(System.in);
 
         IdGenerator idGenerator = new IdGenerator();
-        ThemSachDAO themSachDAO = new ThemSachDAO();
+        ThemSachDAO themSachDAO = new ThemSachDAOMemory();
         ThemSachOutputCUI themSachOutputCUI = new ThemSachOutputCUI(printer);
         ThemSachControl themSachControl = new ThemSachControl(themSachOutputCUI, themSachDAO, idGenerator);
         ThemSachInputCUI themSachInputCUI = new ThemSachInputCUI(sc, printer, themSachControl);

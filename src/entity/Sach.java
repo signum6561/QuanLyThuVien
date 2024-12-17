@@ -1,10 +1,12 @@
 package entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import common.LoaiSach;
 
-public abstract class Sach {
+public abstract class Sach implements Serializable {
+    private static final long serialVersionUID = 1L;
     protected String maSach;
     protected LocalDate ngayNhap;
     protected double donGia;

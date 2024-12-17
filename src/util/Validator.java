@@ -13,6 +13,10 @@ public final class Validator {
         return value == null || value.trim().length() == 0;
     }
 
+    public static boolean isQuoted(String value) {
+        return value.startsWith("\"") && value.endsWith("\"");
+    }
+
     public static boolean isDateFormatValid(String date) {
         try {
             DATE_FORMATTER.parse(date);

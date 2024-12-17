@@ -3,8 +3,10 @@ package ui;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.List;
 
 import common.AppConstant;
+import control.InDSSachControl;
 import ui.ThemSach.ThemSachInputCUI;
 import ui.util.Command;
 import ui.util.Printer;
@@ -12,7 +14,7 @@ import util.Validator;
 
 public class MenuCUI {
     private static final String ASCII_ART_FILE = "assets/ascii-art.txt";
-    private static final Command[] COMMANDS = new Command[] {
+    private static final List<Command> SUPPORTED_COMMANDS = List.of(
         new Command("help", ".h","Ho tro su dung"),
         new Command("thuvien", "tv", "In danh sach tat ca cac sach trong thu vien"),
         new Command("detail", "de", "In thong tin chi tiet sach voi ma sach"),
@@ -22,10 +24,10 @@ public class MenuCUI {
         new Command("find", "fi", "Tim kiem sach"),
         new Command("quit", ".q", "Thoat chuong trinh"),
         new Command("clear", "cls", "Clear man hinh")
-    };
-
+    );
     private final Printer printer;
     private ThemSachInputCUI themSachInputCUI;
+    private InDSSachControl inDSSachControl;
 
     public MenuCUI(Printer printer) {
         this.printer = printer;
@@ -35,7 +37,11 @@ public class MenuCUI {
         this.themSachInputCUI = themSachInputCUI;
     }
 
-    public void execute(Command command, String ...args) {
+    public void setInDSSachControl(InDSSachControl inDSSachControl) {
+        this.inDSSachControl = inDSSachControl;
+    }
+
+    public void execute(Command command, String arg) {
         switch (command.getDefaultPrompt()) {
             case "help":
                 help();
@@ -46,10 +52,12 @@ public class MenuCUI {
             case "update":
                 break;
             case "delete":
+                printer.log("Default delete");
                 break;
             case "find":
                 break;
             case "thuvien":
+                inDSSachControl.execute();
                 break;
             case "detail":
                 break;
@@ -59,13 +67,11 @@ public class MenuCUI {
         }
     }
 
-    public Command getCommand(String value) {
-        for (Command c : COMMANDS) {
-            if (c.matches(value)) {
-                return c;
-            }
-        }
-        return null;
+    public Command getSupportedCommand(String value) {
+        return SUPPORTED_COMMANDS.stream()
+            .filter(c -> c.matches(value))
+            .findFirst()
+            .orElse(null);
     }
 
     public void welcome() {
@@ -85,13 +91,13 @@ public class MenuCUI {
     }
 
     public void help() {
-        for (Command c : COMMANDS) {
+        SUPPORTED_COMMANDS.forEach(c -> {
             String aliasPromptStr = "";
             if(!Validator.isEmptyOrNull(c.getAlias())) {
                 aliasPromptStr = String.format("[%s]", c.getAlias());
             }
             String commandPromptStr = c.getDefaultPrompt() + " " + aliasPromptStr;
             printer.format("%-25s %s\n", commandPromptStr, c.getDescription());
-        }
+        });
 	}
 }

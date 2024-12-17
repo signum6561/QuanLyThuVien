@@ -29,19 +29,20 @@ public class UserInputController {
                 continue;
             }
 
-            Command command = menuCUI.getCommand(inputLine);
+            String commandPrompt = inputLine.split(" ")[0];
+
+            Command command = menuCUI.getSupportedCommand(commandPrompt);
             if(command == null) {
                 printer.error(AppConstant.ERROR_UNKNOWN_COMMAND(inputLine));
                 continue;
             }
 
-            switch (command.getDefaultPrompt()) {
-                case "quit":
-                    break;
-                default:
-                    menuCUI.execute(command);
-                    continue;
+            String rawArgs = inputLine.substring(commandPrompt.length()).trim();
+
+            if(command.getDefaultPrompt().equals("quit")) {
+                break;
             }
+            menuCUI.execute(command, rawArgs);
         }
     }
 }

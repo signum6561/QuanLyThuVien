@@ -1,18 +1,17 @@
 package control;
 
-import database.dao.DSSachDAO;
 import ui.InDSSach.InDSSachOutputCUI;
 
 public class InDSSachControl {
     private InDSSachOutputCUI inDSSachOutput;
-    private DSSachDAO dsSachDAO;
+    private InDSSachDAO inDsSachDb;
 
-    public InDSSachControl(InDSSachOutputCUI inDSSachOutput, DSSachDAO dsSachDAO) {
+    public InDSSachControl(InDSSachOutputCUI inDSSachOutput, InDSSachDAO inDSSachDao) {
         this.inDSSachOutput = inDSSachOutput;
-        this.dsSachDAO = dsSachDAO;
+        this.inDsSachDb = inDSSachDao;
     }
     
     public void execute() {
-        inDSSachOutput.inDanhSach(dsSachDAO.layDSSach());
+        inDSSachOutput.inDanhSach(inDsSachDb.layDSSach());
     }
 }
