@@ -3,16 +3,21 @@ import java.util.Scanner;
 import common.AppConstant;
 import control.InDSSachControl;
 import control.InDSSachDAO;
+import control.LayDSLoaiSachChiTietControl;
+import control.LayDSLoaiSachChiTietDAO;
 import control.ThemSachControl;
 import control.ThemSachDAO;
+import control.ThongKeSachControl;
 import database.SachDatabaseFile;
 import database.dao.InDSSachDAOFile;
+import database.dao.LayDSLoaiSachChiTietDAOFile;
 import database.dao.ThemSachDAOFile;
 import ui.MenuCUI;
 import ui.UserInputController;
 import ui.InDSSach.InDSSachOutputCUI;
 import ui.ThemSach.ThemSachInputCUI;
 import ui.ThemSach.ThemSachOutputCUI;
+import ui.ThongKeSach.ThongKeSachOutputCUI;
 import ui.util.Printer;
 import util.IdGenerator;
 
@@ -32,9 +37,15 @@ public class App {
         ThemSachControl themSachControl = new ThemSachControl(themSachOutputCUI, themSachDAO, idGenerator);
         ThemSachInputCUI themSachInputCUI = new ThemSachInputCUI(sc, printer, themSachControl);
 
+        LayDSLoaiSachChiTietDAO layDSLoaiSachChiTietDAO = new LayDSLoaiSachChiTietDAOFile(sachDatabaseFile);
+        LayDSLoaiSachChiTietControl layDSLoaiSachChiTietControl = new LayDSLoaiSachChiTietControl(layDSLoaiSachChiTietDAO);
+        ThongKeSachOutputCUI thongKeSachOutputCUI = new ThongKeSachOutputCUI(printer);
+        ThongKeSachControl thongKeSachControl = new ThongKeSachControl(thongKeSachOutputCUI, layDSLoaiSachChiTietControl);
+
         MenuCUI menuCUI = new MenuCUI(printer);
         menuCUI.setInDSSachControl(inDSSachControl);
         menuCUI.setThemSachInputCUI(themSachInputCUI);
+        menuCUI.setThongKeSachControl(thongKeSachControl);
 
         UserInputController userInputController = new UserInputController(sc, printer, menuCUI);
         userInputController.run();

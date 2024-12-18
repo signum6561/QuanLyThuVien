@@ -24,6 +24,14 @@ public abstract class Sach implements Serializable {
         this.nhaXuatBan = nhaXuatBan;
     }
 
+    public Sach(String maSach, String ngayNhap, double donGia, int soLuong, String nhaXuatBan) {
+        this.maSach = maSach;
+        this.ngayNhap = LocalDate.parse(ngayNhap);
+        this.donGia = donGia;
+        this.soLuong = soLuong;
+        this.nhaXuatBan = nhaXuatBan;
+    }
+
     public abstract double tinhThanhTien();
 
     public abstract LoaiSach getLoaiSach();

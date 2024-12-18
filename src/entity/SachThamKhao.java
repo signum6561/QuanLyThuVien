@@ -20,6 +20,12 @@ public class SachThamKhao extends Sach {
         this.thue = thue;
     }
 
+    public SachThamKhao(String ngayNhap, double donGia, int soLuong,
+            String nhaXuatBan, double thue) {
+        super(null, ngayNhap, donGia, soLuong, nhaXuatBan);
+        this.thue = thue;
+    }
+
     @Override
     public double tinhThanhTien() {
         return soLuong * donGia + thue;

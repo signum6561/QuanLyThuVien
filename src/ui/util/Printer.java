@@ -4,18 +4,17 @@ import java.io.PrintWriter;
 
 public class Printer {
     private PrintWriter writer;
-    private static final String RESET = "\033[0m";
 
     public Printer(PrintWriter writer) {
         this.writer = writer;
     }
-
+    
     public Printer() {
         this.writer = new PrintWriter(System.out, true);
     }
 
-    private String colorize(String text, AnsiColors color) {
-        return color.get() + text + RESET;
+    public static String colorize(String text, AnsiColors color) {
+        return color.get() + text + AnsiColors.RESET.get();
     }
 
     public void write(String text) {

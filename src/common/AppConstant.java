@@ -6,7 +6,7 @@ public final class AppConstant {
     public static final String DB_FILE_PATH = "sach.db";
 
     public static final String DEFAULT_DATE_FORMAT = "dd-MM-yyyy";
-    public static final String CURRENCY_FORMAT = "#,###.00";
+    public static final String CURRENCY_FORMAT = "#,###";
         
     public static final String PARAM_ERROR_UNKNOWN_COMMAND = "Lệnh không xác định \"@c\"";
     public static final String ERROR_UNKNOWN_COMMAND(String command) {
