@@ -3,6 +3,7 @@ package dto;
 import java.time.LocalDate;
 
 import common.LoaiSach;
+import common.TinhTrang;
 
 public class SachChiTietDTO {
     private String maSach;
@@ -11,7 +12,7 @@ public class SachChiTietDTO {
     private double donGia;
     private int soLuong;
     private String nhaXuatBan;
-    private String tinhTrang;
+    private TinhTrang tinhTrang;
     private double thue;
     private double thanhTien;
 
@@ -63,11 +64,11 @@ public class SachChiTietDTO {
         this.nhaXuatBan = nhaXuatBan;
     }
 
-    public String getTinhTrang() {
+    public TinhTrang getTinhTrang() {
         return this.tinhTrang;
     }
 
-    public void setTinhTrang(String tinhTrang) {
+    public void setTinhTrang(TinhTrang tinhTrang) {
         this.tinhTrang = tinhTrang;
     }
 

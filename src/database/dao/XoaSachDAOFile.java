@@ -14,8 +14,7 @@ public class XoaSachDAOFile implements XoaSachDAO {
     }
 
     @Override
-    public void xoaSach(Sach sach) {
-        String maSach = sach.getMaSach();
+    public void xoaSach(String maSach) {
         List<Sach> sachList = dbFile.readAll();
         sachList.removeIf(s -> s.getMaSach().equals(maSach));
         dbFile.writeAll(sachList);

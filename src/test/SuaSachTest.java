@@ -15,6 +15,11 @@ public class SuaSachTest {
     public static void main(String[] args) {
         Printer printer = new Printer();
         Scanner sc = new Scanner(System.in);
+
+        for (Sach sach : SachDatabaseMemory.INSTANCE.selectAll()) {
+            System.out.println(sach);
+        }
+
         LaySachDAOMemory laySachDAO = new LaySachDAOMemory();
         LaySachControl laySachControl = new LaySachControl(laySachDAO);
 

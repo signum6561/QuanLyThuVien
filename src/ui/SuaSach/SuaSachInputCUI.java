@@ -35,8 +35,7 @@ public class SuaSachInputCUI {
     }
 
     //function
-    public void nhapMaSach(){
-        
+    public void nhapMaSach() {    
         printer.write ("Vui lòng nhập mã sách: ");
         String inp_maSach = sc.nextLine().trim();
         laySachControl.execute(inp_maSach);
@@ -54,8 +53,7 @@ public class SuaSachInputCUI {
         printer.log("Ngày nhập sách là: "+ sach.getNgayNhap());
         printer.log("Đơn giá là: "+ sach.getDonGia());
         printer.log("Số lượng sách là: "+ sach.getSoLuong());
-        printer.log("Nhà xuất bản là: "+ sach.getNhaXuatBan());
-        
+        printer.log("Nhà xuất bản là: "+ sach.getNhaXuatBan());      
 
         switch(sach.getLoaiSach()){
             case GIAO_KHOA:
@@ -69,8 +67,6 @@ public class SuaSachInputCUI {
             default:
                 return;
         }
-       
-                
     }
 
     public void nhapThongTinSua(){

@@ -12,6 +12,7 @@ import control.ThemSachDAO;
 import control.ThongKeSachControl;
 import control.TimKiemSachControl;
 import control.TimKiemSachDAO;
+import control.TimMaSachControl;
 import control.XoaSachControl;
 import control.XoaSachDAO;
 import database.SachDatabaseFile;
@@ -29,6 +30,7 @@ import ui.ThemSach.ThemSachOutputCUI;
 import ui.ThongKeSach.ThongKeSachOutputCUI;
 import ui.TimKiemSach.TimKiemSachInputCUI;
 import ui.TimKiemSach.TimKiemSachOutputCUI;
+import ui.TimMaSach.TimMaSachOutputCUI;
 import ui.XoaSach.XoaSachInputCUI;
 import ui.XoaSach.XoaSachOutputCUI;
 import ui.util.Printer;
@@ -53,12 +55,15 @@ public class App {
         LaySachDAO laySachDAO = new LaySachDAOFile(dbFile);
         LaySachControl laySachControl = new LaySachControl(laySachDAO);
 
+        TimMaSachOutputCUI timMaSachOutputCUI = new TimMaSachOutputCUI(printer);
+        TimMaSachControl timMaSachControl = new TimMaSachControl(laySachControl, timMaSachOutputCUI);
+
         LayDSLoaiSachChiTietDAO layDSLoaiSachChiTietDAO = new LayDSLoaiSachChiTietDAOFile(dbFile);
         LayDSLoaiSachChiTietControl layDSLoaiSachChiTietControl = new LayDSLoaiSachChiTietControl(layDSLoaiSachChiTietDAO);
 
         XoaSachDAO xoaSachDao = new XoaSachDAOFile(dbFile);
         XoaSachOutputCUI xoaSachOutputCUI = new XoaSachOutputCUI(printer);
-        XoaSachControl xoaSachControl = new XoaSachControl(xoaSachDao, laySachControl, xoaSachOutputCUI);
+        XoaSachControl xoaSachControl = new XoaSachControl(xoaSachDao, timMaSachControl, xoaSachOutputCUI);
         XoaSachInputCUI xoaSachInputCUI = new XoaSachInputCUI(printer, sc, xoaSachControl);
 
         TimKiemSachDAO timKiemSachDAO = new TimKiemSachDAOFile(dbFile);

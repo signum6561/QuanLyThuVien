@@ -1,27 +1,24 @@
 package control;
 
-import entity.Sach;
 import ui.XoaSach.XoaSachOutputCUI;
 
 public class XoaSachControl {
     private final XoaSachDAO xoaSachDao;
-    private final LaySachControl laySachControl;
+    private final TimMaSachControl timMaSachControl;
     private final XoaSachOutputCUI xoaSachOutput;
 
-    public XoaSachControl(XoaSachDAO xoaSachDao, LaySachControl laySachControl, XoaSachOutputCUI xoaSachOutput) {
+    public XoaSachControl(XoaSachDAO xoaSachDao, TimMaSachControl timMaSachControl, XoaSachOutputCUI xoaSachOutput) {
         this.xoaSachDao = xoaSachDao;
-        this.laySachControl = laySachControl;
+        this.timMaSachControl = timMaSachControl;
         this.xoaSachOutput = xoaSachOutput;
     }
 
     public void execute(String maSach) {
-        laySachControl.execute(maSach);
-        Sach sach = laySachControl.getResult();
-        if(sach == null) {
-            xoaSachOutput.khongTimThaySach(maSach);
+        timMaSachControl.execute(maSach);
+        if(!timMaSachControl.isMaSachExist()) {
             return;
-        }   
-        xoaSachDao.xoaSach(sach);
+        }
+        xoaSachDao.xoaSach(maSach);
         xoaSachOutput.thongBaoThanhCong();
     }
 }
