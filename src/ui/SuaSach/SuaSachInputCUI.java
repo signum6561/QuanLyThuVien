@@ -92,7 +92,7 @@ public class SuaSachInputCUI {
             return;
         }
 
-        printer.write("Nhập số lượng mớii: ");
+        printer.write("Nhập số lượng mới: ");
         inp_soLuong = sc.nextLine().trim();
         if(!Validator.isUnsignedInteger(inp_soLuong)){
             printer.error("Số lượng không hợp lệ");
@@ -106,11 +106,11 @@ public class SuaSachInputCUI {
             return;
         }
 
-        printer.write("Loại sách (0-Sách giáo khoa, 1-Sáchh tham khảo): ");
+        printer.write("Loại sách (0-Sách giáo khoa, 1-Sách tham khảo): ");
         inp_loaiSach = sc.nextLine().trim();
         LoaiSach loaiSach = loaiSachMapper.get(inp_loaiSach);
         if(loaiSach == null){
-            printer.error("Loại sach không hợp lệ");
+            printer.error("Loại sách không hợp lệ");
             return;
         }
         
