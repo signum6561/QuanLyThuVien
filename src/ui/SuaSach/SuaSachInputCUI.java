@@ -147,6 +147,9 @@ public class SuaSachInputCUI {
     }
 
     private void printLog(String label, String oldValue) {
+        if (oldValue == null) {
+            oldValue = "";
+        }
         String field = label + ": " + printer.colorize(oldValue, AnsiColors.YELLOW_BRIGHT) + " ";
         printer.write(field);
     }

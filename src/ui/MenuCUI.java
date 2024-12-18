@@ -138,7 +138,7 @@ public class MenuCUI {
             }
             br.close();
             printer.log("Welcome to " + AppConstant.APP_NAME + " v" + AppConstant.APP_VERSION);
-            printer.log("Go \"help\" de duoc ho tro su dung\n");
+            printer.log("Gõ \"help\" để được hỗ trợ sử dụng\n");
         } catch (Exception e) {
             e.printStackTrace();
         }
