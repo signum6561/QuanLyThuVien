@@ -5,19 +5,19 @@ import java.util.List;
 
 import dto.SachDTO;
 import entity.Sach;
-import ui.InDSSach.InDSSachOutputCUI;
+import ui.TimKiemSach.TimKiemSachOutputCUI;
 
-public class InDSSachControl {
-    private InDSSachOutputCUI inDSSachOutput;
-    private InDSSachDAO inDsSachDao;
+public class TimKiemSachControl {
+    private final TimKiemSachDAO timKiemSachDao;
+    private final TimKiemSachOutputCUI timKiemSachOutput;
 
-    public InDSSachControl(InDSSachOutputCUI inDSSachOutput, InDSSachDAO inDSSachDao) {
-        this.inDSSachOutput = inDSSachOutput;
-        this.inDsSachDao = inDSSachDao;
+    public TimKiemSachControl(TimKiemSachDAO timKiemSachDao, TimKiemSachOutputCUI timKiemSachOutput) {
+        this.timKiemSachDao = timKiemSachDao;
+        this.timKiemSachOutput = timKiemSachOutput;
     }
-    
-    public void execute() {
-        List<Sach> sachList = inDsSachDao.layDSSach();
+
+    public void execute(String pattern) {
+        List<Sach> sachList = timKiemSachDao.layKetQuaTimKiem(pattern);
         List<SachDTO> sachDTOs = new ArrayList<>();
         sachList.forEach(sach -> {
             SachDTO sachDTO = new SachDTO();
@@ -30,6 +30,6 @@ public class InDSSachControl {
             sachDTO.setLoaiSach(sach.getLoaiSach().getName());
             sachDTOs.add(sachDTO);
         });
-        inDSSachOutput.inDanhSach(sachDTOs);
+        timKiemSachOutput.hienThiKetQua(sachDTOs);
     }
 }

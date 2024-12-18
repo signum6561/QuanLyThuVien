@@ -9,6 +9,7 @@ import common.AppConstant;
 import control.InDSSachControl;
 import control.ThongKeSachControl;
 import ui.ThemSach.ThemSachInputCUI;
+import ui.TimKiemSach.TimKiemSachInputCUI;
 import ui.XoaSach.XoaSachInputCUI;
 import ui.util.Command;
 import ui.util.Printer;
@@ -32,6 +33,7 @@ public class MenuCUI {
     private ThemSachInputCUI themSachInputCUI;
     private InDSSachControl inDSSachControl;
     private ThongKeSachControl thongKeSachControl;
+    private TimKiemSachInputCUI timKiemSachInputCUI;
     private XoaSachInputCUI xoaSachInputCUI;
 
     public MenuCUI(Printer printer) {
@@ -53,6 +55,9 @@ public class MenuCUI {
     public void setXoaSachInputCUI(XoaSachInputCUI xoaSachInputCUI) {
         this.xoaSachInputCUI = xoaSachInputCUI;
     }
+    public void setTimKiemSachInputCUI(TimKiemSachInputCUI timKiemSachInputCUI) {
+        this.timKiemSachInputCUI = timKiemSachInputCUI;
+    }
 
     public void execute(Command command, String arg) {
         switch (command.getDefaultPrompt()) {
@@ -68,6 +73,7 @@ public class MenuCUI {
                 xoaSachInputCUI.nhapMaSach();
                 break;
             case "find":
+                timKiemSachInputCUI.nhapTieuChiTiemKiem();
                 break;
             case "thuvien":
                 inDSSachControl.execute();

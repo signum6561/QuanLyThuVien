@@ -1,10 +1,12 @@
 package dto;
 
+import java.time.LocalDate;
+
 import common.LoaiSach;
 
 public class SachChiTietDTO {
     private String maSach;
-    private String ngayNhap;
+    private LocalDate ngayNhap;
     private LoaiSach loaiSach;
     private double donGia;
     private int soLuong;
@@ -21,11 +23,11 @@ public class SachChiTietDTO {
         this.maSach = maSach;
     }
 
-    public String getNgayNhap() {
+    public LocalDate getNgayNhap() {
         return this.ngayNhap;
     }
 
-    public void setNgayNhap(String ngayNhap) {
+    public void setNgayNhap(LocalDate ngayNhap) {
         this.ngayNhap = ngayNhap;
     }
 
@@ -84,5 +86,4 @@ public class SachChiTietDTO {
     public void setThanhTien(double thanhTien) {
         this.thanhTien = thanhTien;
     }
-
 }

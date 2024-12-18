@@ -6,6 +6,7 @@ import common.AppConstant;
 import common.LoaiSach;
 import dto.SachDTO;
 import util.CurrencyFormatter;
+import util.DateUtil;
 
 public class TableSach extends ConsoleTable<SachDTO> {
     private static final String MA_SACH_HEADER = "Mã sách";
@@ -88,7 +89,7 @@ public class TableSach extends ConsoleTable<SachDTO> {
     protected StringBuilder getRowData(SachDTO item) {
         return new StringBuilder()
             .append(getCell(item.getMaSach(), maxMaSachWidth))
-            .append(getCell(item.getNgayNhap(), maxNgayNhapWidth))
+            .append(getCell(DateUtil.format(item.getNgayNhap()), maxNgayNhapWidth))
             .append(getCell(CurrencyFormatter.formatVND(item.getDonGia()), maxDonGiaWidth, Align.RIGHT))
             .append(getCell(String.valueOf(item.getSoLuong()), maxSoLuongWidth, Align.CENTER))
             .append(getCell(item.getNhaXuatBan(), maxNhaXuatBanWidth))

@@ -1,6 +1,5 @@
 package ui.ThemSach;
 
-import java.time.LocalDate;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -10,6 +9,7 @@ import control.ThemSachControl;
 import dto.ThemSachInputDTO;
 import ui.util.InputMapper;
 import ui.util.Printer;
+import util.DateUtil;
 import util.Validator;
 
 public class ThemSachInputCUI {
@@ -39,7 +39,7 @@ public class ThemSachInputCUI {
             printer.error("Ngày nhập không được để trống");
             return;
         }
-        if(!Validator.isDateFormatValid(inp_ngayNhap)) {
+        if(!DateUtil.isDateFormatValid(inp_ngayNhap)) {
             printer.error("Ngày nhập không hợp lệ hoặc không đúng định dạng (dd-MM-yyyy)");
             return;
         }
@@ -83,7 +83,7 @@ public class ThemSachInputCUI {
 
         ThemSachInputDTO themSachInputDTO = new ThemSachInputDTO();
         themSachInputDTO.setLoaiSach(loaiSach);
-        themSachInputDTO.setNgayNhap(LocalDate.parse(inp_ngayNhap, Validator.DATE_FORMATTER));
+        themSachInputDTO.setNgayNhap(DateUtil.parse(inp_ngayNhap)); 
         themSachInputDTO.setDonGia(Double.parseDouble(inp_donGia));
         themSachInputDTO.setSoLuong(Integer.parseInt(inp_soLuong));
         themSachInputDTO.setNhaXuatBan(inp_nhaXuatBan);
