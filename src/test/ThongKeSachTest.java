@@ -12,7 +12,7 @@ import ui.util.Printer;
 public class ThongKeSachTest {
     public static void main(String[] args) {
         Printer printer = new Printer();
-        SachDatabaseFile dbFile = new SachDatabaseFile(AppConstant.DB_FILE_PATH);
+        SachDatabaseFile dbFile = new SachDatabaseFile(AppConstant.DB_TEST_FILE_PATH);
 
         LayDSLoaiSachChiTietDAO layDSLoaiSachChiTietDAO = new LayDSLoaiSachChiTietDAOFile(dbFile);
         LayDSLoaiSachChiTietControl layDSLoaiSachChiTietControl = new LayDSLoaiSachChiTietControl(layDSLoaiSachChiTietDAO);

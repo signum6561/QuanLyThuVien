@@ -7,6 +7,7 @@ target/
 mysql-data
 personal-docs/
 bin/
+test.db
 
 ### STS ###
 .apt_generated

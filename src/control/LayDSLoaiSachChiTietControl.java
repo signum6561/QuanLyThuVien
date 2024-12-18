@@ -7,15 +7,15 @@ import dto.LoaiSachChiTietDTO;
 import entity.LoaiSachChiTiet;
 
 public class LayDSLoaiSachChiTietControl {
-    private final LayDSLoaiSachChiTietDAO layDSLoaiSachChiTietDAO;
+    private final LayDSLoaiSachChiTietDAO layDSLoaiSachChiTietDao;
     private List<LoaiSachChiTietDTO> result;
 
     public LayDSLoaiSachChiTietControl(LayDSLoaiSachChiTietDAO layDSLoaiSachChiTietDAO) {
-        this.layDSLoaiSachChiTietDAO = layDSLoaiSachChiTietDAO;
+        this.layDSLoaiSachChiTietDao = layDSLoaiSachChiTietDAO;
     }
 
     public void execute() {
-        List<LoaiSachChiTiet> loaiSachChiTietList = layDSLoaiSachChiTietDAO.layDSLoaiSachChiTiet();
+        List<LoaiSachChiTiet> loaiSachChiTietList = layDSLoaiSachChiTietDao.layDSLoaiSachChiTiet();
         result = new ArrayList<>();
         loaiSachChiTietList.forEach(loaiSachChiTiet -> {
             LoaiSachChiTietDTO loaiSachChiTietDTO = new LoaiSachChiTietDTO();

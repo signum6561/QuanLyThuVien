@@ -25,7 +25,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         Printer printer = new Printer();
         Scanner sc = new Scanner(System.in);
-        SachDatabaseFile sachDatabaseFile = new SachDatabaseFile(AppConstant.DB_FILE_PATH);
+        SachDatabaseFile sachDatabaseFile = new SachDatabaseFile(AppConstant.DB_TEST_FILE_PATH);
 
         InDSSachDAO dsSachDAO = new InDSSachDAOFile(sachDatabaseFile);
         InDSSachOutputCUI inDSSachOutputCUI = new InDSSachOutputCUI(printer);

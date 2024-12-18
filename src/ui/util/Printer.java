@@ -1,16 +1,16 @@
 package ui.util;
 
-import java.io.PrintWriter;
+import java.io.PrintStream;
 
 public class Printer {
-    private PrintWriter writer;
+    private PrintStream out;
 
-    public Printer(PrintWriter writer) {
-        this.writer = writer;
+    public Printer(PrintStream out) {
+        this.out = out;
     }
     
     public Printer() {
-        this.writer = new PrintWriter(System.out, true);
+        this.out = new PrintStream(System.out, true);
     }
 
     public static String colorize(String text, AnsiColors color) {
@@ -18,38 +18,38 @@ public class Printer {
     }
 
     public void write(String text) {
-        writer.print(text); writer.flush();
+        out.print(text); out.flush();
     }
 
     public void write(String text, AnsiColors color) {
-        writer.print(colorize(text, color)); writer.flush();
+        out.print(colorize(text, color)); out.flush();
     }
 
     public void log(String text) {
-        writer.println(text);
+        out.println(text);
     }
 
     public void log(String text, AnsiColors color) {
-        writer.println(colorize(text, color));
+        out.println(colorize(text, color));
     }
 
     public void success(String text) {
-        writer.println(colorize("[SUCCESS] " + text, AnsiColors.GREEN));
+        out.println(colorize("[SUCCESS] " + text, AnsiColors.GREEN));
     }
 
     public void error(String text) {
-        writer.println(colorize("[ERROR] " + text, AnsiColors.RED));
+        out.println(colorize("[ERROR] " + text, AnsiColors.RED));
     }
 
     public void warning(String text) {
-        writer.println(colorize("[WARN] " + text, AnsiColors.YELLOW));
+        out.println(colorize("[WARN] " + text, AnsiColors.YELLOW));
     }
 
     public void info(String text) {
-        writer.println(colorize("[INFO] " + text, AnsiColors.BLUE));
+        out.println(colorize("[INFO] " + text, AnsiColors.BLUE));
     }
 
     public void format(String format, Object ... args) {
-        writer.printf(format, args); writer.flush();
+        out.printf(format, args); out.flush();
     }
 }

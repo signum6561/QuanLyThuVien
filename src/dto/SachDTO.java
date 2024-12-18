@@ -67,5 +67,4 @@ public class SachDTO {
     public void setThanhTien(double thanhTien) {
         this.thanhTien = thanhTien;
     }
-
 }
