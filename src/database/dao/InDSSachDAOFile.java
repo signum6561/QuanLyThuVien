@@ -7,7 +7,7 @@ import database.SachDatabaseFile;
 import entity.Sach;
 
 public class InDSSachDAOFile implements InDSSachDAO {
-    private SachDatabaseFile dbFile;
+    private final SachDatabaseFile dbFile;
 
     public InDSSachDAOFile(SachDatabaseFile dbFile) {
         this.dbFile = dbFile;

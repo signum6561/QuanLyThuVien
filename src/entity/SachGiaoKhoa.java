@@ -21,6 +21,13 @@ public class SachGiaoKhoa extends Sach {
         this.tinhTrang = tinhTrang;
     }
 
+    public SachGiaoKhoa(String ngayNhap, double donGia, int soLuong,
+            String nhaXuatBan, TinhTrang tinhTrang) {
+        super(null, ngayNhap, donGia, soLuong, nhaXuatBan);
+        this.tinhTrang = tinhTrang;
+    }
+    
+
     @Override
     public double tinhThanhTien() {
         double result = 0;

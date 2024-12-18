@@ -1,21 +1,17 @@
 package control;
-import database.dao.SuaSachDAO;
+import database.dao.SuaSachDAOMemory;
 import dto.SuaSachInputDTO;
 import ui.SuaSach.SuaSachOutputCUI;
-import dto.SuaSachInputDTO;
-import control.LaySachControl;
 import entity.Sach;
 import entity.SachGiaoKhoa;
 import entity.SachThamKhao;
-import database.dao.LaySachDAO;
 
 public class SuaSachControl {
     private SuaSachOutputCUI suaSachOutput;
-    private SuaSachDAO suaSachDAO;
+    private SuaSachDAOMemory suaSachDao;
    
-
-    public SuaSachControl(SuaSachDAO suaSachDAO, SuaSachOutputCUI suaSachOutput) {
-        this.suaSachDAO = suaSachDAO;
+    public SuaSachControl(SuaSachDAOMemory suaSachDao, SuaSachOutputCUI suaSachOutput) {
+        this.suaSachDao = suaSachDao;
         this.suaSachOutput = suaSachOutput;
     }
 
@@ -25,13 +21,13 @@ public class SuaSachControl {
             case GIAO_KHOA:
                 SachGiaoKhoa sachGiaoKhoa = new SachGiaoKhoa();
                 sachGiaoKhoa.setTinhTrang(request.getTinhTrang());
-                sach=sachGiaoKhoa;
-            break;
+                sach = sachGiaoKhoa;
+                break;
             case THAM_KHAO:
                 SachThamKhao sachThamKhao = new SachThamKhao();
                 sachThamKhao.setThue(request.getThue());
-                sach=sachThamKhao;
-            break;
+                sach = sachThamKhao;
+                break;
             default:
                 return;
         }
@@ -41,7 +37,7 @@ public class SuaSachControl {
         sach.setSoLuong(request.getSoLuong());
         sach.setNhaXuatBan(request.getNhaXuatBan());
         
-        suaSachDAO.suaSach(sach);
+        suaSachDao.suaSach(sach);
         suaSachOutput.thongBaoSua("Đã sửa sách thành công");
-}
+    }
 }

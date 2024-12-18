@@ -7,7 +7,10 @@ import java.util.List;
 
 import common.AppConstant;
 import control.InDSSachControl;
+import control.ThongKeSachControl;
 import ui.ThemSach.ThemSachInputCUI;
+import ui.TimKiemSach.TimKiemSachInputCUI;
+import ui.XoaSach.XoaSachInputCUI;
 import ui.util.Command;
 import ui.util.Printer;
 import util.Validator;
@@ -23,11 +26,15 @@ public class MenuCUI {
         new Command("delete", "Xoa sach"),
         new Command("find", "fi", "Tim kiem sach"),
         new Command("quit", ".q", "Thoat chuong trinh"),
-        new Command("clear", "cls", "Clear man hinh")
+        new Command("clear", "cls", "Clear man hinh"),
+        new Command("thongke", "tk", "Thong ke sach")
     );
     private final Printer printer;
     private ThemSachInputCUI themSachInputCUI;
     private InDSSachControl inDSSachControl;
+    private ThongKeSachControl thongKeSachControl;
+    private TimKiemSachInputCUI timKiemSachInputCUI;
+    private XoaSachInputCUI xoaSachInputCUI;
 
     public MenuCUI(Printer printer) {
         this.printer = printer;
@@ -41,6 +48,17 @@ public class MenuCUI {
         this.inDSSachControl = inDSSachControl;
     }
 
+    public void setThongKeSachControl(ThongKeSachControl thongKeSachControl) {
+        this.thongKeSachControl = thongKeSachControl;
+    }
+
+    public void setXoaSachInputCUI(XoaSachInputCUI xoaSachInputCUI) {
+        this.xoaSachInputCUI = xoaSachInputCUI;
+    }
+    public void setTimKiemSachInputCUI(TimKiemSachInputCUI timKiemSachInputCUI) {
+        this.timKiemSachInputCUI = timKiemSachInputCUI;
+    }
+
     public void execute(Command command, String arg) {
         switch (command.getDefaultPrompt()) {
             case "help":
@@ -52,9 +70,10 @@ public class MenuCUI {
             case "update":
                 break;
             case "delete":
-                printer.log("Default delete");
+                xoaSachInputCUI.nhapMaSach();
                 break;
             case "find":
+                timKiemSachInputCUI.nhapTieuChiTiemKiem();
                 break;
             case "thuvien":
                 inDSSachControl.execute();
@@ -63,6 +82,9 @@ public class MenuCUI {
                 break;
             case "clear":
                 printer.write("\033[H\033[2J");
+                break;
+            case "thongke":
+                thongKeSachControl.execute();
                 break;
         }
     }

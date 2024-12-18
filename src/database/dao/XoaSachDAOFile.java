@@ -2,21 +2,22 @@ package database.dao;
 
 import java.util.List;
 
-import control.ThemSachDAO;
+import control.XoaSachDAO;
 import database.SachDatabaseFile;
 import entity.Sach;
 
-public class ThemSachDAOFile implements ThemSachDAO {
+public class XoaSachDAOFile implements XoaSachDAO {
     private final SachDatabaseFile dbFile;
 
-    public ThemSachDAOFile(SachDatabaseFile dbFile) {
+    public XoaSachDAOFile(SachDatabaseFile dbFile) {
         this.dbFile = dbFile;
     }
 
     @Override
-    public void themSach(Sach sach) {
+    public void xoaSach(Sach sach) {
+        String maSach = sach.getMaSach();
         List<Sach> sachList = dbFile.readAll();
-        sachList.add(sach);
+        sachList.removeIf(s -> s.getMaSach().equals(maSach));
         dbFile.writeAll(sachList);
     }
 }

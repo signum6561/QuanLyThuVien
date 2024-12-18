@@ -1,20 +1,20 @@
 package control;
-import database.dao.LaySachDAO;
+
 import entity.Sach;
+
 public class LaySachControl {
-    private final LaySachDAO laySachDAO;
-    private Sach sach;
+    private final LaySachDAO laySachDao;
+    private Sach result;
 
     public LaySachControl(LaySachDAO laySachDAO) {
-        this.laySachDAO = laySachDAO;
+        this.laySachDao = laySachDAO;
     }
-    
 
-    public void execute(String maSach){
-        this.sach =laySachDAO.laySach(maSach);
-        return;
+    public void execute(String maSach) {
+        this.result = laySachDao.laySach(maSach);
     }
-    public Sach getSach(){
-        return sach;
+
+    public Sach getResult() {
+        return this.result;
     }
 }

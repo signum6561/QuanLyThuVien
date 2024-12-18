@@ -1,12 +1,12 @@
 package ui.SuaSach;
 
 import control.SuaSachControl;
-import database.dao.LaySachDAO;
 
 import java.util.Map;
 import java.util.Scanner;
 import control.LaySachControl;
 import ui.util.Printer;
+import util.DateUtil;
 import util.Validator;
 import entity.Sach;
 import entity.SachGiaoKhoa;
@@ -15,7 +15,6 @@ import common.LoaiSach;
 import common.TinhTrang;
 import ui.util.InputMapper;
 import dto.SuaSachInputDTO;
-import java.time.LocalDate;
 
 public class SuaSachInputCUI {
     
@@ -41,7 +40,7 @@ public class SuaSachInputCUI {
         printer.write ("Vui lòng nhập mã sách: ");
         String inp_maSach = sc.nextLine().trim();
         laySachControl.execute(inp_maSach);
-        Sach sach = laySachControl.getSach();
+        Sach sach = laySachControl.getResult();
         if (sach == null){
             printer.error("Mã sách không hợp lệ");
             return;
@@ -74,19 +73,24 @@ public class SuaSachInputCUI {
                 
     }
 
-   
-
-
     public void nhapThongTinSua(){
         printer.write("Nhập ngày mới (dd-mm-yyyy): " );
         inp_ngayNhap = sc.nextLine().trim();
-        if(!Validator.isDateFormatValid(inp_ngayNhap)){
+        if(Validator.isEmptyOrNull(inp_ngayNhap)) {
+            printer.error("Ngày nhập không được để trống");
+            return;
+        }
+        if(!DateUtil.isDateFormatValid(inp_ngayNhap)){
             printer.error("Ngày nhập không hợp lệ hoặc không đúng định dạng (dd-mm-yyyy) ");
             return;
         }
 
         printer.write("Nhập đơn giá mới: " );
         inp_donGia = sc.nextLine().trim();
+        if(Validator.isEmptyOrNull(inp_donGia)) {
+            printer.error("Đơn giá không được để trống");
+            return;
+        }
         if(!Validator.isUnsignedDecimal(inp_donGia)){
             printer.error("Đơn giá không hợp lệ");
             return;
@@ -94,6 +98,10 @@ public class SuaSachInputCUI {
 
         printer.write("Nhập số lượng mới: ");
         inp_soLuong = sc.nextLine().trim();
+        if (Validator.isEmptyOrNull(inp_soLuong)) {
+            printer.error("Số lượng không được để trống");
+            return;
+        }
         if(!Validator.isUnsignedInteger(inp_soLuong)){
             printer.error("Số lượng không hợp lệ");
             return;
@@ -116,7 +124,7 @@ public class SuaSachInputCUI {
         
         SuaSachInputDTO suaSachInputDTO = new SuaSachInputDTO();
         suaSachInputDTO.setLoaiSach(loaiSach);
-        suaSachInputDTO.setNgayNhap(LocalDate.parse(inp_ngayNhap, Validator.DATE_FORMATTER));
+        suaSachInputDTO.setNgayNhap(DateUtil.parse(inp_ngayNhap));
         suaSachInputDTO.setDonGia(Double.parseDouble(inp_donGia));
         suaSachInputDTO.setSoLuong(Integer.parseInt(inp_loaiSach));
         suaSachInputDTO.setNhaXuatBan(inp_nhaXuatBan);
@@ -128,22 +136,25 @@ public class SuaSachInputCUI {
                 inp_tinhTrang = sc.nextLine().trim();
                 TinhTrang tinhTrang = tinhTrangMapper.get(inp_tinhTrang);
                 if (tinhTrang == null) {
-                printer.error("Tình trạng không hợp lệ");
-                return;
-            }
+                    printer.error("Tình trạng không hợp lệ");
+                    return;
+                }
                 suaSachInputDTO.setTinhTrang(tinhTrang);
                 break;
 
             case THAM_KHAO:
                 printer.write("Nhập thuế: ");
                 inp_thue = sc.nextLine().trim();
+                if(Validator.isEmptyOrNull(inp_thue)) {
+                    printer.error("Thuế không được để trống");
+                    return;
+                }
                 if(!Validator.isUnsignedDecimal(inp_thue)){
                     printer.error("Thuế không hợp lệ");
                     return;
                 }
                 suaSachInputDTO.setThue(Double.parseDouble(inp_thue));
                 break;
-
             default:
                 return;
         }

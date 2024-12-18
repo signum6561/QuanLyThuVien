@@ -2,7 +2,8 @@ package ui.InDSSach;
 
 import java.util.List;
 
-import entity.Sach;
+import dto.SachDTO;
+import ui.util.ConsoleTable;
 import ui.util.Printer;
 import ui.util.TableSach;
 
@@ -13,8 +14,8 @@ public class InDSSachOutputCUI {
         this.printer = printer;
     }
 
-    public void inDanhSach(List<Sach> sachList) {
-        TableSach tableSach = new TableSach(sachList, printer);
+    public void inDanhSach(List<SachDTO> sachList) {
+        ConsoleTable<?> tableSach = new TableSach(sachList, printer);
         tableSach.show();
     }   
 }
