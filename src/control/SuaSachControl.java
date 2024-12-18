@@ -1,5 +1,4 @@
 package control;
-import database.dao.SuaSachDAOMemory;
 import dto.SuaSachInputDTO;
 import ui.SuaSach.SuaSachOutputCUI;
 import entity.Sach;
@@ -8,9 +7,9 @@ import entity.SachThamKhao;
 
 public class SuaSachControl {
     private SuaSachOutputCUI suaSachOutput;
-    private SuaSachDAOMemory suaSachDao;
+    private SuaSachDAO suaSachDao;
    
-    public SuaSachControl(SuaSachDAOMemory suaSachDao, SuaSachOutputCUI suaSachOutput) {
+    public SuaSachControl(SuaSachDAO suaSachDao, SuaSachOutputCUI suaSachOutput) {
         this.suaSachDao = suaSachDao;
         this.suaSachOutput = suaSachOutput;
     }
