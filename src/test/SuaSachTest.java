@@ -1,8 +1,10 @@
 package test;
 import control.SuaSachControl;
 import control.SuaSachDAO;
+import control.TimMaSachControl;
 import ui.SuaSach.SuaSachInputCUI;
 import ui.SuaSach.SuaSachOutputCUI;
+import ui.TimMaSach.TimMaSachOutputCUI;
 
 import java.util.Scanner;
 import ui.util.Printer;
@@ -23,10 +25,13 @@ public class SuaSachTest {
         LaySachDAOMemory laySachDAO = new LaySachDAOMemory();
         LaySachControl laySachControl = new LaySachControl(laySachDAO);
 
+        TimMaSachOutputCUI timMaSachOutputCUI = new TimMaSachOutputCUI(printer);
+        TimMaSachControl timMaSachControl = new TimMaSachControl(laySachControl, timMaSachOutputCUI);
+
         SuaSachDAO suaSachDAO = new SuaSachDAOMemory();
         SuaSachOutputCUI suaSachOutput = new SuaSachOutputCUI(printer);
         SuaSachControl suaSachControl = new SuaSachControl(suaSachDAO, suaSachOutput);
-        SuaSachInputCUI suaSachInputCUI = new SuaSachInputCUI(sc, laySachControl, printer, suaSachControl);
+        SuaSachInputCUI suaSachInputCUI = new SuaSachInputCUI(sc, timMaSachControl, printer, suaSachControl);
         suaSachInputCUI.nhapMaSach();
 
         for (Sach sach : SachDatabaseMemory.INSTANCE.selectAll()) {

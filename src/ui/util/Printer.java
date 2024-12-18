@@ -13,7 +13,7 @@ public class Printer {
         this.out = new PrintStream(System.out, true);
     }
 
-    public static String colorize(String text, AnsiColors color) {
+    public String colorize(String text, AnsiColors color) {
         return color.get() + text + AnsiColors.RESET.get();
     }
 

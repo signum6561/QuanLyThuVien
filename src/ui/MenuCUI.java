@@ -8,6 +8,7 @@ import java.util.List;
 import common.AppConstant;
 import control.InDSSachControl;
 import control.ThongKeSachControl;
+import ui.SuaSach.SuaSachInputCUI;
 import ui.ThemSach.ThemSachInputCUI;
 import ui.TimKiemSach.TimKiemSachInputCUI;
 import ui.XoaSach.XoaSachInputCUI;
@@ -34,6 +35,7 @@ public class MenuCUI {
     private InDSSachControl inDSSachControl;
     private ThongKeSachControl thongKeSachControl;
     private TimKiemSachInputCUI timKiemSachInputCUI;
+    private SuaSachInputCUI suaSachInputCUI;
     private XoaSachInputCUI xoaSachInputCUI;
 
     public MenuCUI(Printer printer) {
@@ -55,8 +57,13 @@ public class MenuCUI {
     public void setXoaSachInputCUI(XoaSachInputCUI xoaSachInputCUI) {
         this.xoaSachInputCUI = xoaSachInputCUI;
     }
+
     public void setTimKiemSachInputCUI(TimKiemSachInputCUI timKiemSachInputCUI) {
         this.timKiemSachInputCUI = timKiemSachInputCUI;
+    }
+
+    public void setSuaSachInputCUI(SuaSachInputCUI suaSachInputCUI) {
+        this.suaSachInputCUI = suaSachInputCUI;
     }
 
     public void execute(Command command, String arg) {
@@ -67,7 +74,8 @@ public class MenuCUI {
             case "add":
                 themSachInputCUI.nhapThongTinSach();
                 break;
-            case "update":
+            case "edit":
+                suaSachInputCUI.nhapMaSach();
                 break;
             case "delete":
                 xoaSachInputCUI.nhapMaSach();

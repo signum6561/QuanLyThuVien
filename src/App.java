@@ -7,6 +7,8 @@ import control.LayDSLoaiSachChiTietControl;
 import control.LayDSLoaiSachChiTietDAO;
 import control.LaySachControl;
 import control.LaySachDAO;
+import control.SuaSachControl;
+import control.SuaSachDAO;
 import control.ThemSachControl;
 import control.ThemSachDAO;
 import control.ThongKeSachControl;
@@ -19,12 +21,15 @@ import database.SachDatabaseFile;
 import database.dao.InDSSachDAOFile;
 import database.dao.LayDSLoaiSachChiTietDAOFile;
 import database.dao.LaySachDAOFile;
+import database.dao.SuaSachDAOFile;
 import database.dao.ThemSachDAOFile;
 import database.dao.TimKiemSachDAOFile;
 import database.dao.XoaSachDAOFile;
 import ui.MenuCUI;
 import ui.UserInputController;
 import ui.InDSSach.InDSSachOutputCUI;
+import ui.SuaSach.SuaSachInputCUI;
+import ui.SuaSach.SuaSachOutputCUI;
 import ui.ThemSach.ThemSachInputCUI;
 import ui.ThemSach.ThemSachOutputCUI;
 import ui.ThongKeSach.ThongKeSachOutputCUI;
@@ -61,6 +66,11 @@ public class App {
         LayDSLoaiSachChiTietDAO layDSLoaiSachChiTietDAO = new LayDSLoaiSachChiTietDAOFile(dbFile);
         LayDSLoaiSachChiTietControl layDSLoaiSachChiTietControl = new LayDSLoaiSachChiTietControl(layDSLoaiSachChiTietDAO);
 
+        SuaSachDAO suaSachDAO = new SuaSachDAOFile(dbFile);
+        SuaSachOutputCUI suaSachOutput = new SuaSachOutputCUI(printer);
+        SuaSachControl suaSachControl = new SuaSachControl(suaSachDAO, suaSachOutput);
+        SuaSachInputCUI suaSachInputCUI = new SuaSachInputCUI(sc, timMaSachControl, printer, suaSachControl);
+
         XoaSachDAO xoaSachDao = new XoaSachDAOFile(dbFile);
         XoaSachOutputCUI xoaSachOutputCUI = new XoaSachOutputCUI(printer);
         XoaSachControl xoaSachControl = new XoaSachControl(xoaSachDao, timMaSachControl, xoaSachOutputCUI);
@@ -80,6 +90,7 @@ public class App {
         menuCUI.setThongKeSachControl(thongKeSachControl);
         menuCUI.setXoaSachInputCUI(xoaSachInputCUI);
         menuCUI.setTimKiemSachInputCUI(timKiemSachInputCUI);
+        menuCUI.setSuaSachInputCUI(suaSachInputCUI);
 
         UserInputController userInputController = new UserInputController(sc, printer, menuCUI);
         userInputController.run();

@@ -35,7 +35,6 @@ public class SuaSachControl {
         sach.setDonGia(request.getDonGia());
         sach.setSoLuong(request.getSoLuong());
         sach.setNhaXuatBan(request.getNhaXuatBan());
-        
         suaSachDao.suaSach(sach);
         suaSachOutput.thongBaoSua("Đã sửa sách thành công");
     }

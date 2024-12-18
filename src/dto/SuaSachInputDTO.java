@@ -29,6 +29,11 @@ public class SuaSachInputDTO {
     public String getMaSach(){
         return this.maSach;
     }
+    
+    public void setMaSach(String maSach){
+        this.maSach=maSach;
+    }
+
     public LoaiSach getLoaiSach() {
        return this.loaiSach;
     }
