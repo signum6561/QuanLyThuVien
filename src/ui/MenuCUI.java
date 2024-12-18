@@ -8,27 +8,29 @@ import java.util.List;
 import common.AppConstant;
 import control.InDSSachControl;
 import control.ThongKeSachControl;
+import ui.InChiTietSach.InChiTietSachInputCUI;
 import ui.SuaSach.SuaSachInputCUI;
 import ui.ThemSach.ThemSachInputCUI;
 import ui.TimKiemSach.TimKiemSachInputCUI;
 import ui.XoaSach.XoaSachInputCUI;
 import ui.util.Command;
+import ui.util.CommandLine;
 import ui.util.Printer;
 import util.Validator;
 
 public class MenuCUI {
     private static final String ASCII_ART_FILE = "assets/ascii-art.txt";
     private static final List<Command> SUPPORTED_COMMANDS = List.of(
-        new Command("help", ".h","Ho tro su dung"),
-        new Command("thuvien", "tv", "In danh sach tat ca cac sach trong thu vien"),
-        new Command("detail", "de", "In thong tin chi tiet sach voi ma sach"),
-        new Command("add", "Them sach"),
-        new Command("edit", "Sua sach"),
-        new Command("delete", "Xoa sach"),
-        new Command("find", "fi", "Tim kiem sach"),
-        new Command("quit", ".q", "Thoat chuong trinh"),
-        new Command("clear", "cls", "Clear man hinh"),
-        new Command("thongke", "tk", "Thong ke sach")
+        new Command("help", ".h","Hỗ trợ sử dụng"),
+        new Command("thuvien", "tv", "Hiển thị các sách hiện có trong thư viện"),
+        new Command("detail", "de", "Hiển thị chi tiết thông tin sách"),
+        new Command("add", "Thêm sách"),
+        new Command("edit", "Sửa sách"),
+        new Command("delete", "Xoá sách"),
+        new Command("find", "fi", "Tìm kiếm sách theo tiêu chí"),
+        new Command("quit", ".q", "Thoát chương trình"),
+        new Command("clear", "cls", "Clear màn hình"),
+        new Command("thongke", "tk", "Thống kê sách thư viện")
     );
     private final Printer printer;
     private ThemSachInputCUI themSachInputCUI;
@@ -37,6 +39,7 @@ public class MenuCUI {
     private TimKiemSachInputCUI timKiemSachInputCUI;
     private SuaSachInputCUI suaSachInputCUI;
     private XoaSachInputCUI xoaSachInputCUI;
+    private InChiTietSachInputCUI inChiTietSachInputCUI;
 
     public MenuCUI(Printer printer) {
         this.printer = printer;
@@ -66,8 +69,12 @@ public class MenuCUI {
         this.suaSachInputCUI = suaSachInputCUI;
     }
 
-    public void execute(Command command, String arg) {
-        switch (command.getDefaultPrompt()) {
+    public void setInChiTietSachInputCUI(InChiTietSachInputCUI inChiTietSachInputCUI) {
+        this.inChiTietSachInputCUI = inChiTietSachInputCUI;
+    }
+
+    public void execute(CommandLine cml) {
+        switch (cml.getCommand().getDefaultPrompt()) {
             case "help":
                 help();
                 break;
@@ -75,18 +82,35 @@ public class MenuCUI {
                 themSachInputCUI.nhapThongTinSach();
                 break;
             case "edit":
-                suaSachInputCUI.nhapMaSach();
+                if (cml.isArgQuoted()) {
+                    suaSachInputCUI.timSach(cml.extractArg());
+                } else {
+                    suaSachInputCUI.nhapMaSach();
+                }
                 break;
             case "delete":
-                xoaSachInputCUI.nhapMaSach();
+                if (cml.isArgQuoted()) {    
+                    xoaSachInputCUI.xoaSach(cml.extractArg());
+                } else {
+                    xoaSachInputCUI.nhapMaSach();
+                }
                 break;
             case "find":
-                timKiemSachInputCUI.nhapTieuChiTiemKiem();
+                if(cml.isArgQuoted()) {
+                    timKiemSachInputCUI.timKiem(cml.extractArg());
+                } else {
+                    timKiemSachInputCUI.nhapTieuChiTiemKiem();
+                }
                 break;
             case "thuvien":
                 inDSSachControl.execute();
                 break;
             case "detail":
+                if(cml.isArgQuoted()) {
+                    inChiTietSachInputCUI.inChiTietSach(cml.extractArg());
+                } else {
+                    inChiTietSachInputCUI.nhapMaSach();
+                }
                 break;
             case "clear":
                 printer.write("\033[H\033[2J");

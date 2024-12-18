@@ -13,11 +13,7 @@ public final class Validator {
     public static boolean isEmptyOrNull(String value) {
         return value == null || value.trim().length() == 0;
     }
-
-    public static boolean isQuoted(String value) {
-        return value.startsWith("\"") && value.endsWith("\"");
-    }
-
+    
     @Deprecated
     public static boolean isDateFormatValid(String date) {
         try {

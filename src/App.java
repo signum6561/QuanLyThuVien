@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 import common.AppConstant;
+import control.InChiTietSachControl;
 import control.InDSSachControl;
 import control.InDSSachDAO;
 import control.LayDSLoaiSachChiTietControl;
@@ -27,6 +28,8 @@ import database.dao.TimKiemSachDAOFile;
 import database.dao.XoaSachDAOFile;
 import ui.MenuCUI;
 import ui.UserInputController;
+import ui.InChiTietSach.InChiTietSachInputCUI;
+import ui.InChiTietSach.InChiTietSachOutputCUI;
 import ui.InDSSach.InDSSachOutputCUI;
 import ui.SuaSach.SuaSachInputCUI;
 import ui.SuaSach.SuaSachOutputCUI;
@@ -66,6 +69,10 @@ public class App {
         LayDSLoaiSachChiTietDAO layDSLoaiSachChiTietDAO = new LayDSLoaiSachChiTietDAOFile(dbFile);
         LayDSLoaiSachChiTietControl layDSLoaiSachChiTietControl = new LayDSLoaiSachChiTietControl(layDSLoaiSachChiTietDAO);
 
+        InChiTietSachOutputCUI inChiTietSachOutputCUI = new InChiTietSachOutputCUI(printer);
+        InChiTietSachControl inChiTietSachControl = new InChiTietSachControl(timMaSachControl, inChiTietSachOutputCUI);
+        InChiTietSachInputCUI inChiTietSachInputCUI = new InChiTietSachInputCUI(printer, sc, inChiTietSachControl);
+
         SuaSachDAO suaSachDAO = new SuaSachDAOFile(dbFile);
         SuaSachOutputCUI suaSachOutput = new SuaSachOutputCUI(printer);
         SuaSachControl suaSachControl = new SuaSachControl(suaSachDAO, suaSachOutput);
@@ -91,6 +98,7 @@ public class App {
         menuCUI.setXoaSachInputCUI(xoaSachInputCUI);
         menuCUI.setTimKiemSachInputCUI(timKiemSachInputCUI);
         menuCUI.setSuaSachInputCUI(suaSachInputCUI);
+        menuCUI.setInChiTietSachInputCUI(inChiTietSachInputCUI);
 
         UserInputController userInputController = new UserInputController(sc, printer, menuCUI);
         userInputController.run();

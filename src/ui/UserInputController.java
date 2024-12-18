@@ -5,6 +5,7 @@ import java.util.Scanner;
 import common.AppConstant;
 import ui.util.AnsiColors;
 import ui.util.Command;
+import ui.util.CommandLine;
 import ui.util.Printer;
 
 public class UserInputController {
@@ -42,7 +43,8 @@ public class UserInputController {
             if(command.getDefaultPrompt().equals("quit")) {
                 break;
             }
-            menuCUI.execute(command, rawArgs);
+            CommandLine commandLine = new CommandLine(command, inputLine, rawArgs);
+            menuCUI.execute(commandLine);
         }
     }
 }
