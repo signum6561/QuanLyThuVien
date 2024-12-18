@@ -9,6 +9,7 @@ import common.AppConstant;
 import control.InDSSachControl;
 import control.ThongKeSachControl;
 import ui.ThemSach.ThemSachInputCUI;
+import ui.XoaSach.XoaSachInputCUI;
 import ui.util.Command;
 import ui.util.Printer;
 import util.Validator;
@@ -31,6 +32,7 @@ public class MenuCUI {
     private ThemSachInputCUI themSachInputCUI;
     private InDSSachControl inDSSachControl;
     private ThongKeSachControl thongKeSachControl;
+    private XoaSachInputCUI xoaSachInputCUI;
 
     public MenuCUI(Printer printer) {
         this.printer = printer;
@@ -48,6 +50,10 @@ public class MenuCUI {
         this.thongKeSachControl = thongKeSachControl;
     }
 
+    public void setXoaSachInputCUI(XoaSachInputCUI xoaSachInputCUI) {
+        this.xoaSachInputCUI = xoaSachInputCUI;
+    }
+
     public void execute(Command command, String arg) {
         switch (command.getDefaultPrompt()) {
             case "help":
@@ -59,7 +65,7 @@ public class MenuCUI {
             case "update":
                 break;
             case "delete":
-                printer.log("Default delete");
+                xoaSachInputCUI.nhapMaSach();
                 break;
             case "find":
                 break;
