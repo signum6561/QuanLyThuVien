@@ -1,13 +1,13 @@
 package test;
 
+import application.control.LayDSLoaiSachChiTietControl;
+import application.control.ThongKeSachControl;
 import common.AppConstant;
-import control.LayDSLoaiSachChiTietControl;
-import control.LayDSLoaiSachChiTietDAO;
-import control.ThongKeSachControl;
 import database.SachDatabaseFile;
-import database.dao.LayDSLoaiSachChiTietDAOFile;
-import ui.ThongKeSach.ThongKeSachOutputCUI;
-import ui.util.Printer;
+import database.dao.LayDSLoaiSachChiTiet.LayDSLoaiSachChiTietDAO;
+import database.dao.LayDSLoaiSachChiTiet.LayDSLoaiSachChiTietDAOFile;
+import presentation.cui.ThongKeSach.ThongKeSachOutputCUI;
+import presentation.cui.util.Printer;
 
 public class ThongKeSachTest {
     public static void main(String[] args) {

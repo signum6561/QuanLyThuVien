@@ -2,15 +2,15 @@ package test;
 
 import java.util.Scanner;
 
+import application.control.TimKiemSachControl;
+import application.entity.Sach;
 import common.AppConstant;
-import control.TimKiemSachControl;
-import control.TimKiemSachDAO;
 import database.SachDatabaseFile;
-import database.dao.TimKiemSachDAOFile;
-import entity.Sach;
-import ui.TimKiemSach.TimKiemSachInputCUI;
-import ui.TimKiemSach.TimKiemSachOutputCUI;
-import ui.util.Printer;
+import database.dao.TimKiemSach.TimKiemSachDAO;
+import database.dao.TimKiemSach.TimKiemSachDAOFile;
+import presentation.cui.TimKiemSach.TimKiemSachInputCUI;
+import presentation.cui.TimKiemSach.TimKiemSachOutputCUI;
+import presentation.cui.util.Printer;
 
 public class TimKiemSachTest {
     public static void main(String[] args) {

@@ -4,13 +4,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.entity.Sach;
+import application.entity.SachGiaoKhoa;
+import application.entity.SachThamKhao;
 import common.AppConstant;
 import common.TinhTrang;
+import common.util.IdGenerator;
 import database.SachDatabaseFile;
-import entity.Sach;
-import entity.SachGiaoKhoa;
-import entity.SachThamKhao;
-import util.IdGenerator;
 
 public class InitDatabaseTest {
     public static void main(String[] args) {

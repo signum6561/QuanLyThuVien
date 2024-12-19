@@ -2,15 +2,15 @@ package test;
 
 import java.util.Scanner;
 
-import control.ThemSachControl;
-import control.ThemSachDAO;
+import application.control.ThemSachControl;
+import application.entity.Sach;
+import common.util.IdGenerator;
 import database.SachDatabaseMemory;
-import database.dao.ThemSachDAOMemory;
-import entity.Sach;
-import ui.ThemSach.ThemSachInputCUI;
-import ui.ThemSach.ThemSachOutputCUI;
-import ui.util.Printer;
-import util.IdGenerator;
+import database.dao.ThemSach.ThemSachDAO;
+import database.dao.ThemSach.ThemSachDAOMemory;
+import presentation.cui.ThemSach.ThemSachInputCUI;
+import presentation.cui.ThemSach.ThemSachOutputCUI;
+import presentation.cui.util.Printer;
 
 public class ThemSachTest {
 

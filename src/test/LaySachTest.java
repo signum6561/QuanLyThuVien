@@ -1,10 +1,10 @@
 package test;
 
+import application.control.LaySachControl;
 import common.AppConstant;
-import control.LaySachControl;
-import control.LaySachDAO;
 import database.SachDatabaseFile;
-import database.dao.LaySachDAOFile;
+import database.dao.LaySach.LaySachDAO;
+import database.dao.LaySach.LaySachDAOFile;
 
 public class LaySachTest {
     public static void main(String[] args) {

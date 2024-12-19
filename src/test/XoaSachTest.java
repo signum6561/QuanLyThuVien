@@ -2,19 +2,19 @@ package test;
 
 import java.util.Scanner;
 
+import application.control.LaySachControl;
+import application.control.TimMaSachControl;
+import application.control.XoaSachControl;
 import common.AppConstant;
-import control.LaySachControl;
-import control.LaySachDAO;
-import control.TimMaSachControl;
-import control.XoaSachControl;
-import control.XoaSachDAO;
 import database.SachDatabaseFile;
-import database.dao.LaySachDAOFile;
-import database.dao.XoaSachDAOFile;
-import ui.TimMaSach.TimMaSachOutputCUI;
-import ui.XoaSach.XoaSachInputCUI;
-import ui.XoaSach.XoaSachOutputCUI;
-import ui.util.Printer;
+import database.dao.LaySach.LaySachDAO;
+import database.dao.LaySach.LaySachDAOFile;
+import database.dao.XoaSach.XoaSachDAO;
+import database.dao.XoaSach.XoaSachDAOFile;
+import presentation.cui.TimMaSach.TimMaSachOutputCUI;
+import presentation.cui.XoaSach.XoaSachInputCUI;
+import presentation.cui.XoaSach.XoaSachOutputCUI;
+import presentation.cui.util.Printer;
 
 public class XoaSachTest {
     public static void main(String[] args) {

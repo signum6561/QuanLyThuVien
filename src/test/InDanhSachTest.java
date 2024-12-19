@@ -1,10 +1,10 @@
 package test;
 
-import control.InDSSachControl;
-import control.InDSSachDAO;
-import database.dao.InDSSachDAOMemory;
-import ui.InDSSach.InDSSachOutputCUI;
-import ui.util.Printer;
+import application.control.InDSSachControl;
+import database.dao.InDSSach.InDSSachDAO;
+import database.dao.InDSSach.InDSSachDAOMemory;
+import presentation.cui.InDSSach.InDSSachOutputCUI;
+import presentation.cui.util.Printer;
 
 public class InDanhSachTest {
 

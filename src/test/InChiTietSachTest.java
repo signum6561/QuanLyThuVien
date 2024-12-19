@@ -1,15 +1,15 @@
 package test;
 
+import application.control.InChiTietSachControl;
+import application.control.LaySachControl;
+import application.control.TimMaSachControl;
 import common.AppConstant;
-import control.InChiTietSachControl;
-import control.LaySachControl;
-import control.LaySachDAO;
-import control.TimMaSachControl;
 import database.SachDatabaseFile;
-import database.dao.LaySachDAOFile;
-import ui.InChiTietSach.InChiTietSachOutputCUI;
-import ui.TimMaSach.TimMaSachOutputCUI;
-import ui.util.Printer;
+import database.dao.LaySach.LaySachDAO;
+import database.dao.LaySach.LaySachDAOFile;
+import presentation.cui.InChiTietSach.InChiTietSachOutputCUI;
+import presentation.cui.TimMaSach.TimMaSachOutputCUI;
+import presentation.cui.util.Printer;
 
 public class InChiTietSachTest {
     public static void main(String[] args) {

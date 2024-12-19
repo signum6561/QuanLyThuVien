@@ -1,18 +1,18 @@
 package test;
-import control.SuaSachControl;
-import control.SuaSachDAO;
-import control.TimMaSachControl;
-import ui.SuaSach.SuaSachInputCUI;
-import ui.SuaSach.SuaSachOutputCUI;
-import ui.TimMaSach.TimMaSachOutputCUI;
-
 import java.util.Scanner;
-import ui.util.Printer;
-import entity.Sach;
+
+import application.control.LaySachControl;
+import application.control.SuaSachControl;
+import application.control.TimMaSachControl;
+import application.entity.Sach;
 import database.SachDatabaseMemory;
-import control.LaySachControl;
-import database.dao.LaySachDAOMemory;
-import database.dao.SuaSachDAOMemory;
+import database.dao.LaySach.LaySachDAOMemory;
+import database.dao.SuaSach.SuaSachDAO;
+import database.dao.SuaSach.SuaSachDAOMemory;
+import presentation.cui.SuaSach.SuaSachInputCUI;
+import presentation.cui.SuaSach.SuaSachOutputCUI;
+import presentation.cui.TimMaSach.TimMaSachOutputCUI;
+import presentation.cui.util.Printer;
 public class SuaSachTest {
     public static void main(String[] args) {
         Printer printer = new Printer();
