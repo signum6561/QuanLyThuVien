@@ -1,5 +1,5 @@
 package presentation.cui.SuaSach;
-import presentation.cui.util.Printer;
+import presentation.util.Printer;
 public class SuaSachOutputCUI {
     public Printer printer;
     public SuaSachOutputCUI(Printer printer) {

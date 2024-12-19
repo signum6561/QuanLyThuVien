@@ -3,7 +3,7 @@ package presentation.cui.InChiTietSach;
 import java.util.Scanner;
 
 import application.control.InChiTietSachControl;
-import presentation.cui.util.Printer;
+import presentation.util.Printer;
 
 public class InChiTietSachInputCUI {
     private final Printer printer;

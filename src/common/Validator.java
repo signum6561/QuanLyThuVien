@@ -1,27 +1,11 @@
-package common.util;
-
-import java.time.format.DateTimeFormatter;
-
-import common.AppConstant;
+package common;
 
 public final class Validator {
-    @Deprecated
-    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern(AppConstant.DEFAULT_DATE_FORMAT);
     private static final String UNSIGNED_INTEGER_REGEX = "^[0-9]+$";
     private static final String UNSIGNED_DECIMAL_REGEX = "^[0-9]+(\\.[0-9]+)?$";
 
     public static boolean isEmptyOrNull(String value) {
         return value == null || value.trim().length() == 0;
-    }
-    
-    @Deprecated
-    public static boolean isDateFormatValid(String date) {
-        try {
-            DateUtil.DATE_FORMATTER.parse(date);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
     }
 
     public static boolean isUnsignedInteger(String value) {

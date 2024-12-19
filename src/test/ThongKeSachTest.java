@@ -7,7 +7,7 @@ import database.SachDatabaseFile;
 import database.dao.LayDSLoaiSachChiTiet.LayDSLoaiSachChiTietDAO;
 import database.dao.LayDSLoaiSachChiTiet.LayDSLoaiSachChiTietDAOFile;
 import presentation.cui.ThongKeSach.ThongKeSachOutputCUI;
-import presentation.cui.util.Printer;
+import presentation.util.Printer;
 
 public class ThongKeSachTest {
     public static void main(String[] args) {

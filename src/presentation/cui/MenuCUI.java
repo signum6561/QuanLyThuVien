@@ -8,15 +8,15 @@ import java.util.List;
 import application.control.InDSSachControl;
 import application.control.ThongKeSachControl;
 import common.AppConstant;
-import common.util.Validator;
+import common.Validator;
 import presentation.cui.InChiTietSach.InChiTietSachInputCUI;
 import presentation.cui.SuaSach.SuaSachInputCUI;
 import presentation.cui.ThemSach.ThemSachInputCUI;
 import presentation.cui.TimKiemSach.TimKiemSachInputCUI;
 import presentation.cui.XoaSach.XoaSachInputCUI;
-import presentation.cui.util.Command;
-import presentation.cui.util.CommandLine;
-import presentation.cui.util.Printer;
+import presentation.util.Command;
+import presentation.util.CommandLine;
+import presentation.util.Printer;
 
 public class MenuCUI {
     private static final String ASCII_ART_FILE = "assets/ascii-art.txt";

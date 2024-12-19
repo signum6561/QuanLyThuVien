@@ -14,7 +14,7 @@ import database.dao.XoaSach.XoaSachDAOFile;
 import presentation.cui.TimMaSach.TimMaSachOutputCUI;
 import presentation.cui.XoaSach.XoaSachInputCUI;
 import presentation.cui.XoaSach.XoaSachOutputCUI;
-import presentation.cui.util.Printer;
+import presentation.util.Printer;
 
 public class XoaSachTest {
     public static void main(String[] args) {

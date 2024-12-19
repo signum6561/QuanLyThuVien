@@ -1,6 +1,6 @@
 package presentation.cui.ThemSach;
 
-import presentation.cui.util.Printer;
+import presentation.util.Printer;
 
 public class ThemSachOutputCUI {
     private final Printer printer;

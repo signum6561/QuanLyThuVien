@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 import application.control.ThemSachControl;
 import application.entity.Sach;
-import common.util.IdGenerator;
+import common.IdGenerator;
 import database.SachDatabaseMemory;
 import database.dao.ThemSach.ThemSachDAO;
 import database.dao.ThemSach.ThemSachDAOMemory;
 import presentation.cui.ThemSach.ThemSachInputCUI;
 import presentation.cui.ThemSach.ThemSachOutputCUI;
-import presentation.cui.util.Printer;
+import presentation.util.Printer;
 
 public class ThemSachTest {
 

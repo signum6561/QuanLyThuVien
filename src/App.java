@@ -10,7 +10,7 @@ import application.control.ThongKeSachControl;
 import application.control.TimKiemSachControl;
 import application.control.TimMaSachControl;
 import application.control.XoaSachControl;
-import common.util.IdGenerator;
+import common.IdGenerator;
 import database.SachDatabaseFile;
 import database.dao.InDSSach.InDSSachDAO;
 import database.dao.InDSSach.InDSSachDAOFile;
@@ -41,7 +41,7 @@ import presentation.cui.TimKiemSach.TimKiemSachOutputCUI;
 import presentation.cui.TimMaSach.TimMaSachOutputCUI;
 import presentation.cui.XoaSach.XoaSachInputCUI;
 import presentation.cui.XoaSach.XoaSachOutputCUI;
-import presentation.cui.util.Printer;
+import presentation.util.Printer;
 
 public class App {
     public static void main(String[] args) throws Exception {

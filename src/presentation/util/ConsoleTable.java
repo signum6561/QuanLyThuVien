@@ -1,4 +1,4 @@
-package presentation.cui.util;
+package presentation.util;
 
 import java.util.List;
 

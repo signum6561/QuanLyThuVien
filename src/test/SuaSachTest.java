@@ -12,7 +12,7 @@ import database.dao.SuaSach.SuaSachDAOMemory;
 import presentation.cui.SuaSach.SuaSachInputCUI;
 import presentation.cui.SuaSach.SuaSachOutputCUI;
 import presentation.cui.TimMaSach.TimMaSachOutputCUI;
-import presentation.cui.util.Printer;
+import presentation.util.Printer;
 public class SuaSachTest {
     public static void main(String[] args) {
         Printer printer = new Printer();

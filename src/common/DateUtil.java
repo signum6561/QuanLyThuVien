@@ -1,9 +1,7 @@
-package common.util;
+package common;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
-import common.AppConstant;
 
 public final class DateUtil {
     public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern(AppConstant.DEFAULT_DATE_FORMAT);

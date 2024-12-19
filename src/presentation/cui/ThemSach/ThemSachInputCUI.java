@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 import application.control.ThemSachControl;
 import application.dto.ThemSachInputDTO;
+import common.DateUtil;
 import common.LoaiSach;
 import common.TinhTrang;
-import common.util.DateUtil;
-import common.util.Validator;
-import presentation.cui.util.InputMapper;
-import presentation.cui.util.Printer;
+import common.Validator;
+import presentation.util.InputMapper;
+import presentation.util.Printer;
 
 public class ThemSachInputCUI {
     private final Scanner sc;

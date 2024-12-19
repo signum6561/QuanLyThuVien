@@ -1,12 +1,12 @@
-package presentation.cui.util;
+package presentation.util;
 
 import java.util.List;
 
 import application.dto.SachDTO;
 import common.AppConstant;
+import common.CurrencyFormatter;
+import common.DateUtil;
 import common.LoaiSach;
-import common.util.CurrencyFormatter;
-import common.util.DateUtil;
 
 public class TableSach extends ConsoleTable<SachDTO> {
     private static final String MA_SACH_HEADER = "Mã sách";

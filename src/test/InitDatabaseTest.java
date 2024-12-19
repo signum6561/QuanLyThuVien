@@ -8,8 +8,8 @@ import application.entity.Sach;
 import application.entity.SachGiaoKhoa;
 import application.entity.SachThamKhao;
 import common.AppConstant;
+import common.IdGenerator;
 import common.TinhTrang;
-import common.util.IdGenerator;
 import database.SachDatabaseFile;
 
 public class InitDatabaseTest {

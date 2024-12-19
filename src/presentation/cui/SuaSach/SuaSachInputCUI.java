@@ -7,14 +7,14 @@ import application.control.SuaSachControl;
 import application.control.TimMaSachControl;
 import application.dto.SachChiTietDTO;
 import application.dto.SuaSachInputDTO;
+import common.CurrencyFormatter;
+import common.DateUtil;
 import common.LoaiSach;
 import common.TinhTrang;
-import common.util.CurrencyFormatter;
-import common.util.DateUtil;
-import common.util.Validator;
-import presentation.cui.util.AnsiColors;
-import presentation.cui.util.InputMapper;
-import presentation.cui.util.Printer;
+import common.Validator;
+import presentation.util.AnsiColors;
+import presentation.util.InputMapper;
+import presentation.util.Printer;
 
 public class SuaSachInputCUI {
     

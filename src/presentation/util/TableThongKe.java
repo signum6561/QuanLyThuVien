@@ -1,10 +1,10 @@
-package presentation.cui.util;
+package presentation.util;
 
 import java.util.List;
 
 import application.dto.LoaiSachChiTietDTO;
+import common.CurrencyFormatter;
 import common.LoaiSach;
-import common.util.CurrencyFormatter;
 
 public class TableThongKe extends ConsoleTable<LoaiSachChiTietDTO> {
     private static final String LOAI_SACH_HEADER = "Loại sách";

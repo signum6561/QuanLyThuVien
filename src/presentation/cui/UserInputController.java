@@ -3,10 +3,10 @@ package presentation.cui;
 import java.util.Scanner;
 
 import common.AppConstant;
-import presentation.cui.util.AnsiColors;
-import presentation.cui.util.Command;
-import presentation.cui.util.CommandLine;
-import presentation.cui.util.Printer;
+import presentation.util.AnsiColors;
+import presentation.util.Command;
+import presentation.util.CommandLine;
+import presentation.util.Printer;
 
 public class UserInputController {
     private static final String PROMPT = "qls> ";

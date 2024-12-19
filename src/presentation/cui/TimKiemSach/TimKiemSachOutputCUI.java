@@ -3,8 +3,8 @@ package presentation.cui.TimKiemSach;
 import java.util.List;
 
 import application.dto.SachDTO;
-import presentation.cui.util.Printer;
-import presentation.cui.util.TableSach;
+import presentation.util.Printer;
+import presentation.util.TableSach;
 
 public class TimKiemSachOutputCUI {
     private final Printer printer;

@@ -10,7 +10,7 @@ import database.dao.TimKiemSach.TimKiemSachDAO;
 import database.dao.TimKiemSach.TimKiemSachDAOFile;
 import presentation.cui.TimKiemSach.TimKiemSachInputCUI;
 import presentation.cui.TimKiemSach.TimKiemSachOutputCUI;
-import presentation.cui.util.Printer;
+import presentation.util.Printer;
 
 public class TimKiemSachTest {
     public static void main(String[] args) {

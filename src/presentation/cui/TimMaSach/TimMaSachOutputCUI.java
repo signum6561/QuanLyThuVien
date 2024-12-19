@@ -1,6 +1,6 @@
 package presentation.cui.TimMaSach;
 
-import presentation.cui.util.Printer;
+import presentation.util.Printer;
 
 public class TimMaSachOutputCUI {
     private final Printer printer;

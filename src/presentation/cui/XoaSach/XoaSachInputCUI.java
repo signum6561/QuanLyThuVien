@@ -3,7 +3,7 @@ package presentation.cui.XoaSach;
 import java.util.Scanner;
 
 import application.control.XoaSachControl;
-import presentation.cui.util.Printer;
+import presentation.util.Printer;
 
 public class XoaSachInputCUI {
     private final Printer printer;

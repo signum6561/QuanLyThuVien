@@ -1,6 +1,6 @@
 package presentation.cui.XoaSach;
 
-import presentation.cui.util.Printer;
+import presentation.util.Printer;
 
 public class XoaSachOutputCUI {
     private final Printer printer;

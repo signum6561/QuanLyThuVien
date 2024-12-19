@@ -3,7 +3,7 @@ package presentation.cui.TimKiemSach;
 import java.util.Scanner;
 
 import application.control.TimKiemSachControl;
-import presentation.cui.util.Printer;
+import presentation.util.Printer;
 
 public class TimKiemSachInputCUI {
     private final Printer printer;

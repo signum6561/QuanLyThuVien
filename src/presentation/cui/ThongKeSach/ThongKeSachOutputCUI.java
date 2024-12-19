@@ -1,8 +1,8 @@
 package presentation.cui.ThongKeSach;
 
 import application.dto.ThongKeSachResponse;
-import presentation.cui.util.Printer;
-import presentation.cui.util.TableThongKe;
+import presentation.util.Printer;
+import presentation.util.TableThongKe;
 
 public class ThongKeSachOutputCUI {
     private final Printer printer;

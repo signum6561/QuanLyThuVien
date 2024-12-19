@@ -1,9 +1,9 @@
 package presentation.cui.InChiTietSach;
 
 import application.dto.SachChiTietDTO;
-import common.util.CurrencyFormatter;
-import common.util.DateUtil;
-import presentation.cui.util.Printer;
+import common.CurrencyFormatter;
+import common.DateUtil;
+import presentation.util.Printer;
 
 public class InChiTietSachOutputCUI {
     private final Printer printer;

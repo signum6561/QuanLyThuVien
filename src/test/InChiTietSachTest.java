@@ -9,7 +9,7 @@ import database.dao.LaySach.LaySachDAO;
 import database.dao.LaySach.LaySachDAOFile;
 import presentation.cui.InChiTietSach.InChiTietSachOutputCUI;
 import presentation.cui.TimMaSach.TimMaSachOutputCUI;
-import presentation.cui.util.Printer;
+import presentation.util.Printer;
 
 public class InChiTietSachTest {
     public static void main(String[] args) {

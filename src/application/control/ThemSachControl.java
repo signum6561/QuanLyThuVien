@@ -4,7 +4,7 @@ import application.dto.ThemSachInputDTO;
 import application.entity.Sach;
 import application.entity.SachGiaoKhoa;
 import application.entity.SachThamKhao;
-import common.util.IdGenerator;
+import common.IdGenerator;
 import database.dao.ThemSach.ThemSachDAO;
 import presentation.cui.ThemSach.ThemSachOutputCUI;
 
