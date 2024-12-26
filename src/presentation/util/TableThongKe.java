@@ -60,6 +60,9 @@ public class TableThongKe extends ConsoleTable<LoaiSachChiTietDTO> {
                 maxTrungBinhDonGiaWidth = Math.max(maxTrungBinhDonGiaWidth, CurrencyFormatter.formatVND(item.getTrungBinhDonGia()).length());
                 maxTongThanhTienWidth = Math.max(maxTongThanhTienWidth, CurrencyFormatter.formatVND(item.getTongThanhTien()).length());
             }
+            maxSoLuongWidth = Math.max(maxSoLuongWidth, String.valueOf(soLuong).length());
+            maxTrungBinhDonGiaWidth = Math.max(maxTrungBinhDonGiaWidth, CurrencyFormatter.formatVND(trungBinhDonGia).length());
+            maxTongThanhTienWidth = Math.max(maxTongThanhTienWidth, CurrencyFormatter.formatVND(tongThanhTien).length());
         }
     }
 

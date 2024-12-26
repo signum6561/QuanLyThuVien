@@ -3,6 +3,7 @@ package presentation.cui.InDSSach;
 import java.util.List;
 
 import application.dto.SachDTO;
+import presentation.cui.MenuCUI;
 import presentation.util.ConsoleTable;
 import presentation.util.Printer;
 import presentation.util.TableSach;
@@ -17,5 +18,6 @@ public class InDSSachOutputCUI {
     public void inDanhSach(List<SachDTO> sachList) {
         ConsoleTable<?> tableSach = new TableSach(sachList, printer);
         tableSach.show();
+        MenuCUI.setTempIds(sachList);
     }   
 }

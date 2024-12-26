@@ -17,7 +17,7 @@ public class TimKiemSachInputCUI {
     }
 
     public void nhapTieuChiTiemKiem() {
-        printer.write("Tìm kiếm (mã sách, ngày nhập, nhà xuất bản): ");
+        printer.write("Tìm kiếm (mã sách, ngày nhập [yyyy-MM-dd], nhà xuất bản): ");
         String pattern = sc.nextLine().trim();
         if(pattern.isEmpty()) {
             printer.error("Tiêu chí tìm kiếm không được để trống");

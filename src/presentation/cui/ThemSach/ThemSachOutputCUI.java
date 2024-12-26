@@ -4,7 +4,7 @@ import presentation.util.Printer;
 
 public class ThemSachOutputCUI {
     private final Printer printer;
-    private final String PARM_SUCCESS_THEM_SACH = "Them sach thanh cong! Ma sach: @id";
+    private final String PARM_SUCCESS_THEM_SACH = "Thêm sách thành công! Mã sách: @id";
 
     public ThemSachOutputCUI(Printer printer) {
         this.printer = printer;

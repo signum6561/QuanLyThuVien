@@ -23,7 +23,7 @@ public class SachDatabaseFile {
     }
 
     public SachDatabaseFile() {
-        this.file = new File(Path.of("").toAbsolutePath().toString() + "/sach.db");
+        this(Path.of("").toAbsolutePath().toString() + "/sach.db");
     }
 
     public void createNewFileIfNotExists() {

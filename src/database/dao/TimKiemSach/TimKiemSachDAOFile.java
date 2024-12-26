@@ -18,7 +18,7 @@ public class TimKiemSachDAOFile implements TimKiemSachDAO {
         return sachList.stream()
             .filter(sach -> sach.getMaSach().contains(pattern)
                 || sach.getNhaXuatBan().contains(pattern)
-                || sach.getNgayNhap().toString().contains(pattern)
+                || sach.getNgayNhap().toString().toString().contains(pattern)
             )
             .toList();
     }

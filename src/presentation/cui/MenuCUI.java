@@ -3,10 +3,12 @@ package presentation.cui;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import application.control.InDSSachControl;
 import application.control.ThongKeSachControl;
+import application.dto.SachDTO;
 import common.AppConstant;
 import common.Validator;
 import presentation.cui.InChiTietSach.InChiTietSachInputCUI;
@@ -32,6 +34,7 @@ public class MenuCUI {
         new Command("clear", "cls", "Clear màn hình"),
         new Command("thongke", "tk", "Thống kê sách thư viện")
     );
+    private static List<String> ids;
     private final Printer printer;
     private ThemSachInputCUI themSachInputCUI;
     private InDSSachControl inDSSachControl;
@@ -45,6 +48,23 @@ public class MenuCUI {
         this.printer = printer;
     }
 
+    public static void setTempIds(List<SachDTO> sachList) {
+        ids = new ArrayList<>();
+        sachList.forEach(s -> {
+            ids.add(s.getMaSach());
+        });
+    }
+
+    private String selectId(int index) {
+        if(index <= 0) {
+            return ids.get(0);
+        }
+        if(ids != null && index <= ids.size()) {
+            return ids.get(index - 1);
+        }
+        return null;
+    }
+    
     public void setThemSachInputCUI(ThemSachInputCUI themSachInputCUI) {
         this.themSachInputCUI = themSachInputCUI;
     }
@@ -74,6 +94,16 @@ public class MenuCUI {
     }
 
     public void execute(CommandLine cml) {
+        String arg = cml.getArg();
+        String id = null;
+        if(!Validator.isEmptyOrNull(arg) && !cml.isArgQuoted()) {
+            if(!Validator.isUnsignedDecimal(arg)) {
+                printer.error("Tham số không xác định \"" + arg + "\"");
+                return;
+            }
+            int index = Integer.parseInt(arg);
+            id = selectId(index);
+        }
         switch (cml.getCommand().getDefaultPrompt()) {
             case "help":
                 help();
@@ -84,6 +114,8 @@ public class MenuCUI {
             case "edit":
                 if (cml.isArgQuoted()) {
                     suaSachInputCUI.timSach(cml.extractArg());
+                } else if(id != null) {
+                    suaSachInputCUI.timSach(id);
                 } else {
                     suaSachInputCUI.nhapMaSach();
                 }
@@ -91,6 +123,8 @@ public class MenuCUI {
             case "delete":
                 if (cml.isArgQuoted()) {    
                     xoaSachInputCUI.xoaSach(cml.extractArg());
+                } else if(id != null) {
+                    suaSachInputCUI.timSach(id);
                 } else {
                     xoaSachInputCUI.nhapMaSach();
                 }
@@ -98,6 +132,8 @@ public class MenuCUI {
             case "find":
                 if(cml.isArgQuoted()) {
                     timKiemSachInputCUI.timKiem(cml.extractArg());
+                } else if(id != null) {
+                    suaSachInputCUI.timSach(id);
                 } else {
                     timKiemSachInputCUI.nhapTieuChiTiemKiem();
                 }
@@ -108,6 +144,8 @@ public class MenuCUI {
             case "detail":
                 if(cml.isArgQuoted()) {
                     inChiTietSachInputCUI.inChiTietSach(cml.extractArg());
+                } else if(id != null) {
+                    suaSachInputCUI.timSach(id);
                 } else {
                     inChiTietSachInputCUI.nhapMaSach();
                 }

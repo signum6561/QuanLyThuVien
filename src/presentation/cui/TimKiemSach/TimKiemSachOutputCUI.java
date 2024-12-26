@@ -3,6 +3,7 @@ package presentation.cui.TimKiemSach;
 import java.util.List;
 
 import application.dto.SachDTO;
+import presentation.cui.MenuCUI;
 import presentation.util.Printer;
 import presentation.util.TableSach;
 
@@ -17,5 +18,6 @@ public class TimKiemSachOutputCUI {
         TableSach tableSach = new TableSach(printer);
         tableSach.setItems(data);
         tableSach.show();
+        MenuCUI.setTempIds(data);
     }
 }

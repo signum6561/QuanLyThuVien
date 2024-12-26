@@ -15,7 +15,7 @@ public class ThemSachDAOFile implements ThemSachDAO {
     @Override
     public void themSach(Sach sach) {
         List<Sach> sachList = dbFile.readAll();
-        sachList.add(sach);
+        sachList.add(0, sach);
         dbFile.writeAll(sachList);
     }
 }

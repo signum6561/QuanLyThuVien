@@ -79,17 +79,18 @@ public abstract class ConsoleTable<T> {
         return getCell(value, maxWidth, Align.LEFT);
     }
 
-    protected void printDivider() {
-        StringBuilder divider;
+    protected void printDivider(StringBuilder divider) {
         if (indexEnabled) {
             divider = new StringBuilder()
                 .append(getLine(maxIndexWidth))
-                .append(getDivider());
-        } else {
-            divider = getDivider();
+                .append(divider);
         }
         divider.append(TABLE_POINT);
         printer.log(divider.toString());
+    }
+
+    protected void printDivider() {
+        printDivider(getDivider());
     }
 
     protected void printRow(StringBuilder row) {
@@ -97,7 +98,7 @@ public abstract class ConsoleTable<T> {
         printer.log(row.toString());
     };
 
-    private void printBody() {
+    protected void printBody() {
         for (int i = 0; i < items.size(); i++) {
             StringBuilder row;
             T t = items.get(i);
@@ -112,7 +113,7 @@ public abstract class ConsoleTable<T> {
         };
     }
 
-    private void printHeader() {
+    protected void printHeader() {
         StringBuilder headers;
         if (indexEnabled) {
             headers = new StringBuilder()
