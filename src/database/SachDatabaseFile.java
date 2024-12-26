@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,15 @@ public class SachDatabaseFile {
         createNewFileIfNotExists();
     }
 
+    public SachDatabaseFile() {
+        this.file = new File(Path.of("").toAbsolutePath().toString() + "/sach.db");
+    }
+
     public void createNewFileIfNotExists() {
+        File parent = file.getParentFile();
+        if(!parent.exists() || !parent.isDirectory()) {
+            parent.mkdirs();
+        }
         if(!file.exists()) {
             try {
                 file.createNewFile();

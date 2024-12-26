@@ -5,6 +5,7 @@ public enum LoaiSach {
     THAM_KHAO("Tham khảo");
 
     public static final LoaiSach[] values = values();
+    public static final int size = values.length;
     private String name;
 
     private LoaiSach(String name) {

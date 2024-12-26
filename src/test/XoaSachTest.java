@@ -5,7 +5,6 @@ import java.util.Scanner;
 import application.control.LaySachControl;
 import application.control.TimMaSachControl;
 import application.control.XoaSachControl;
-import common.AppConstant;
 import database.SachDatabaseFile;
 import database.dao.LaySach.LaySachDAO;
 import database.dao.LaySach.LaySachDAOFile;
@@ -20,7 +19,7 @@ public class XoaSachTest {
     public static void main(String[] args) {
         Printer printer = new Printer();
         Scanner sc = new Scanner(System.in);
-        SachDatabaseFile dbFile = new SachDatabaseFile(AppConstant.DB_TEST_FILE_PATH);
+        SachDatabaseFile dbFile = new SachDatabaseFile();
         LaySachDAO laySachDAO = new LaySachDAOFile(dbFile);
         LaySachControl laySachControl = new LaySachControl(laySachDAO);
 

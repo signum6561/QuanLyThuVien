@@ -14,7 +14,8 @@ public enum TinhTrang {
         return this.name;
     }
 
-    private static final TinhTrang[] values = values();
+    public static final TinhTrang[] values = values();
+    public static final int size = values.length;
     
     public static TinhTrang get(int ordinal) {
         return values[ordinal];

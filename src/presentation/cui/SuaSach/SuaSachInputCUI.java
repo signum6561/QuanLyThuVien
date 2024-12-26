@@ -58,6 +58,7 @@ public class SuaSachInputCUI {
         printer.info("Vui lòng nhập thông tin mới, bỏ trống nếu không thay đổi");
         printLog("Ngày nhập (dd-MM-yyyy)", DateUtil.format(sach.getNgayNhap()));
         inp_ngayNhap = sc.nextLine().trim();
+        
         if(Validator.isEmptyOrNull(inp_ngayNhap)) {
             suaSachInputDTO.setNgayNhap(sach.getNgayNhap());
         } else if(!DateUtil.isDateFormatValid(inp_ngayNhap)){
@@ -69,6 +70,7 @@ public class SuaSachInputCUI {
 
         printLog("Đơn giá", CurrencyFormatter.formatVND(sach.getDonGia()));
         inp_donGia = sc.nextLine().trim();
+
         if(Validator.isEmptyOrNull(inp_donGia)) {
             suaSachInputDTO.setDonGia(sach.getDonGia());
         } else if(!Validator.isUnsignedDecimal(inp_donGia)){
@@ -80,8 +82,9 @@ public class SuaSachInputCUI {
 
         printLog("Số lượng", String.valueOf(sach.getSoLuong()));
         inp_soLuong = sc.nextLine().trim();
+
         if (Validator.isEmptyOrNull(inp_soLuong)) {
-            suaSachInputDTO.setDonGia(sach.getDonGia());
+            suaSachInputDTO.setDonGia(sach.getSoLuong());
         } else if(!Validator.isUnsignedInteger(inp_soLuong)){
             printer.error("Số lượng không hợp lệ");
             return;
@@ -91,6 +94,7 @@ public class SuaSachInputCUI {
 
         printLog("Nhà xuất bản", sach.getNhaXuatBan());
         inp_nhaXuatBan = sc.nextLine().trim();
+
         if(Validator.isEmptyOrNull(inp_nhaXuatBan)){
             suaSachInputDTO.setNhaXuatBan(sach.getNhaXuatBan());
         } else {
@@ -99,6 +103,7 @@ public class SuaSachInputCUI {
 
         printLog("Loại sách (0-Sách giáo khoa, 1-Sách tham khảo)", sach.getLoaiSach().getName());
         inp_loaiSach = sc.nextLine().trim();
+
         LoaiSach loaiSach;
         if(inp_loaiSach.isEmpty()){
             loaiSach = sach.getLoaiSach();
@@ -126,6 +131,7 @@ public class SuaSachInputCUI {
                     printer.error("Tình trạng không hợp lệ");
                     return;
                 }
+                
                 suaSachInputDTO.setTinhTrang(tinhTrang);
                 break;
             case THAM_KHAO:
@@ -143,6 +149,7 @@ public class SuaSachInputCUI {
             default:
                 return;
         }
+
         suaSachInputDTO.setMaSach(sach.getMaSach());
         suaSachControl.execute(suaSachInputDTO);
     }

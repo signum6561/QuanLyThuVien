@@ -1,3 +1,5 @@
+import java.io.File;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 import application.control.InChiTietSachControl;
@@ -47,7 +49,15 @@ public class App {
     public static void main(String[] args) throws Exception {
         Printer printer = new Printer();
         Scanner sc = new Scanner(System.in);
-        SachDatabaseFile dbFile = new SachDatabaseFile("sach.db");
+
+        String filePath = new StringBuilder()
+            .append(Path.of("").toAbsolutePath().toString())
+            .append(File.separator)
+            .append("data")
+            .append(File.separator)
+            .append("sach.db")
+            .toString();
+        SachDatabaseFile dbFile = new SachDatabaseFile(filePath);
 
         InDSSachDAO dsSachDAO = new InDSSachDAOFile(dbFile);
         InDSSachOutputCUI inDSSachOutputCUI = new InDSSachOutputCUI(printer);

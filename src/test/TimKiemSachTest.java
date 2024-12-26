@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import application.control.TimKiemSachControl;
 import application.entity.Sach;
-import common.AppConstant;
 import database.SachDatabaseFile;
 import database.dao.TimKiemSach.TimKiemSachDAO;
 import database.dao.TimKiemSach.TimKiemSachDAOFile;
@@ -16,7 +15,7 @@ public class TimKiemSachTest {
     public static void main(String[] args) {
         Printer printer = new Printer();
         Scanner sc = new Scanner(System.in);
-        SachDatabaseFile dbFile = new SachDatabaseFile(AppConstant.DB_TEST_FILE_PATH);
+        SachDatabaseFile dbFile = new SachDatabaseFile();
 
         TimKiemSachDAO timKiemSachDAO = new TimKiemSachDAOFile(dbFile);
         TimKiemSachOutputCUI timKiemSachOutputCUI = new TimKiemSachOutputCUI(printer);

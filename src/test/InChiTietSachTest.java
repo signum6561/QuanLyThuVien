@@ -3,7 +3,6 @@ package test;
 import application.control.InChiTietSachControl;
 import application.control.LaySachControl;
 import application.control.TimMaSachControl;
-import common.AppConstant;
 import database.SachDatabaseFile;
 import database.dao.LaySach.LaySachDAO;
 import database.dao.LaySach.LaySachDAOFile;
@@ -14,7 +13,7 @@ import presentation.util.Printer;
 public class InChiTietSachTest {
     public static void main(String[] args) {
         Printer printer = new Printer();
-        SachDatabaseFile dbFile = new SachDatabaseFile(AppConstant.DB_TEST_FILE_PATH);
+        SachDatabaseFile dbFile = new SachDatabaseFile();
 
         LaySachDAO laySachDAO = new LaySachDAOFile(dbFile);
         LaySachControl laySachControl = new LaySachControl(laySachDAO);
